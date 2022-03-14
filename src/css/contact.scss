@@ -1,0 +1,25 @@
+/* Transition with cover screen */
+
+.contact-leave-active,
+.contact-enter-active,
+.contact-leave-active .transition,
+.contact-enter-active .transition
+{
+    transition: transform .5s var(--easing);
+}
+
+.contact-leave .transition 
+{
+    transform: translateY(-100%);
+}
+
+.contact-leave-to .transition,
+.contact-enter .transition
+{
+    transform: translateY(0);
+}
+
+.contact-enter-to .transition 
+{
+    transform: translateY(100%);
+}

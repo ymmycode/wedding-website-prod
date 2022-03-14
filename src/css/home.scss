@@ -1,0 +1,27 @@
+
+
+/* Slide to home */
+
+.home-leave-active,
+.home-enter-active,
+.home-leave-active .transition,
+.home-enter-active .transition
+{
+    transition: transform .5s var(--easing);
+}
+
+.home-leave .transition 
+{
+    transform: translateY(-100%);
+}
+
+.home-leave-to .transition,
+.home-enter .transition
+{
+    transform: translateY(0);
+}
+
+.home-enter-to .transition 
+{
+    transform: translateY(100%);
+}
