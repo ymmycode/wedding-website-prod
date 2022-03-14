@@ -1,24 +1,19 @@
+// import plugin
 import barba from '@barba/core'
 import barbaCss from '@barba/css'
 import barbaPrefetch from '@barba/prefetch'
 
-// DOM
-const body = document.querySelector(`body`)
-
-// Barba Global hook, run befor any transition
-barba.hooks.before((data) => 
-{
-    // getting color data from background dataset
-    const background = data.current.container.dataset.background 
-    // console.log(background) // expected value hexadecimal color from data-background
-    
-    // and set background color
-    body.style.setProperty(`--page-background`, background)
-})
+// importing scene
+import Experience from './Experience/Experience'
+import Experience2 from './Experience/Experience2'
+import Experience3 from './Experience/Experience3'
 
 // tell barba to use plugins
 barba.use(barbaCss)
 barba.use(barbaPrefetch)
+
+// WebGL Experiences
+let experience, experience2, experience3
 
 // barba initialization
 barba.init({
@@ -29,17 +24,66 @@ barba.init({
             to: {
                 namespace: [`home`]
             },
-            // once(){}, // page load animation 
             leave(){}, // leaving transition
             enter(){}, // entering transition 
         },
+        
         {
-            name: `contact`,
+            name: `ring`,
             to: {
-                namespace: [`contact`]
+                namespace: [`ring`]
             },
             leave(){}, // leaving transition
             enter(){}, // entering transition
-        }
+        },
+
+        {
+            name: `partner`,
+            to: {
+                namespace: [`partner`]
+            },
+            leave(){}, // leaving transition
+            enter(){}, // entering transition
+        },
+    ],
+    views: [
+        {
+            namespace: 'home',
+            beforeEnter({next})
+            {
+                experience = new Experience(next.container)
+            },
+            beforeLeave()
+            {
+                // destroying scene
+                experience.destroyThisScene()
+            },
+        },
+
+        {
+            namespace: 'ring',
+            beforeEnter({next})
+            {
+                experience2 =  new Experience2(next.container)
+            },
+            beforeLeave()
+            {
+                // destroying scene
+                experience2.destroyThisScene()
+            },
+        },
+        
+        {
+            namespace: 'partner',
+            beforeEnter({next})
+            {
+                experience3 =  new Experience3(next.container)
+            },
+            beforeLeave()
+            {
+                // destroying scene
+                experience3.destroyThisScene()
+            },
+        },
     ]
 })

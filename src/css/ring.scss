@@ -1,0 +1,25 @@
+/* Transition with cover screen */
+
+.ring-leave-active,
+.ring-enter-active,
+.ring-leave-active .transition,
+.ring-enter-active .transition
+{
+    transition: transform .5s var(--easing);
+}
+
+.ring-leave .transition 
+{
+    transform: translateY(-100%);
+}
+
+.ring-leave-to .transition,
+.ring-enter .transition
+{
+    transform: translateY(0);
+}
+
+.ring-enter-to .transition 
+{
+    transform: translateY(100%);
+}

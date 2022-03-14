@@ -27,8 +27,12 @@ module.exports = (env, argv) => ({
             to: '[name].[ext]',
           }, 
           {
-            from: path.resolve(__dirname, './src/contact/index.html'),
-            to: 'contact/[name].[ext]',
+            from: path.resolve(__dirname, './src/ring/index.html'),
+            to: 'ring/[name].[ext]',
+          },
+          {
+            from: path.resolve(__dirname, './src/partner/index.html'),
+            to: 'partner/[name].[ext]',
           },
           {
             from: 'src/images/*',
