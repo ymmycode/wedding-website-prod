@@ -2,6 +2,7 @@
 
 .ring-leave-active,
 .ring-enter-active,
+.ring-once-active,
 .ring-leave-active .transition,
 .ring-enter-active .transition
 {
@@ -14,12 +15,14 @@
 }
 
 .ring-leave-to .transition,
-.ring-enter .transition
+.ring-enter .transition,
+.ring-once .transition
 {
     transform: translateY(0);
 }
 
-.ring-enter-to .transition 
+.ring-enter-to .transition,
+.ring-once-to .transition 
 {
     transform: translateY(100%);
 }

@@ -4,6 +4,7 @@
 
 .home-leave-active,
 .home-enter-active,
+.home-once-active,
 .home-leave-active .transition,
 .home-enter-active .transition
 {
@@ -16,12 +17,14 @@
 }
 
 .home-leave-to .transition,
-.home-enter .transition
+.home-enter .transition,
+.home-once .transition
 {
     transform: translateY(0);
 }
 
-.home-enter-to .transition 
+.home-enter-to .transition ,
+.home-once-to .transition 
 {
     transform: translateY(100%);
 }

@@ -1,0 +1,28 @@
+/* Transition with cover screen */
+
+.location-leave-active,
+.location-enter-active,
+.location-once-active,
+.location-leave-active .transition,
+.location-enter-active .transition
+{
+    transition: transform .5s var(--easing);
+}
+
+.location-leave .transition 
+{
+    transform: translateY(-100%);
+}
+
+.location-leave-to .transition,
+.location-enter .transition,
+.location-once .transition
+{
+    transform: translateY(0);
+}
+
+.location-enter-to .transition,
+.location-once-to .transition 
+{
+    transform: translateY(100%);
+}

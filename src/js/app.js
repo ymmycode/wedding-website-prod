@@ -2,30 +2,62 @@
 import barba from '@barba/core'
 import barbaCss from '@barba/css'
 import barbaPrefetch from '@barba/prefetch'
+// import gsap from 'gsap'
+
+// importing animation
+// import {revealPage} from './Animation'
 
 // importing scene
-import Experience from './Experience/Experience'
-import Experience2 from './Experience/Experience2'
-import Experience3 from './Experience/Experience3'
+import Experience from './Experience/Experience.js'
+
+// Canvas DOM
+const canvas =  document.querySelector(`canvas.webgl`)
+
+//url
+const homepage = `/`
+
+// when user refresh the page, redirect to hompeage
+// solution 2
+window.onbeforeunload = () => 
+{
+    window.setTimeout(()=> 
+    {
+        window.location.href = homepage
+    }, 0)
+    window.onbeforeunload = null
+}
+
+// Init Experience
+const experience = new Experience(canvas)
 
 // tell barba to use plugins
 barba.use(barbaCss)
 barba.use(barbaPrefetch)
 
-// WebGL Experiences
-let experience, experience2, experience3
-
 // barba initialization
 barba.init({
+
+        // views: [
+    //     {
+    //         namespace: 'comments',
+    //         beforeEnter({next})
+    //         {
+    //             //
+    //         },
+    //     },
+    // ],
+
     transitions: [
         {
+            // don't mind the enter transition at home page
+            // just want to use leave transition
             name: `home`,
-            // sync: true,
             to: {
                 namespace: [`home`]
             },
-            leave(){}, // leaving transition
-            enter(){}, // entering transition 
+            // once(){},
+            leave(){},
+            enter(){}
         },
         
         {
@@ -33,8 +65,9 @@ barba.init({
             to: {
                 namespace: [`ring`]
             },
-            leave(){}, // leaving transition
-            enter(){}, // entering transition
+            once(){},
+            leave(){},
+            enter(){}
         },
 
         {
@@ -42,48 +75,64 @@ barba.init({
             to: {
                 namespace: [`partner`]
             },
-            leave(){}, // leaving transition
-            enter(){}, // entering transition
-        },
-    ],
-    views: [
-        {
-            namespace: 'home',
-            beforeEnter({next})
-            {
-                experience = new Experience(next.container)
-            },
-            beforeLeave()
-            {
-                // destroying scene
-                experience.destroyThisScene()
-            },
+            once(){},
+            leave(){},
+            enter(){}
         },
 
         {
-            namespace: 'ring',
-            beforeEnter({next})
-            {
-                experience2 =  new Experience2(next.container)
+            name: `location`,
+            to: {
+                namespace: [`location`]
             },
-            beforeLeave()
-            {
-                // destroying scene
-                experience2.destroyThisScene()
-            },
+            once(){},
+            leave(){},
+            enter(){} 
         },
-        
+
         {
-            namespace: 'partner',
-            beforeEnter({next})
-            {
-                experience3 =  new Experience3(next.container)
+            name: `quote`,
+            to: {
+                namespace: [`quote`]
             },
-            beforeLeave()
-            {
-                // destroying scene
-                experience3.destroyThisScene()
-            },
+            once(){},
+            leave(){},
+            enter(){}
         },
-    ]
+
+        {
+            name: `story`,
+            to: {
+                namespace: [`story`]
+            },
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+        {
+            name: `gift`,
+            to: {
+                namespace: [`gift`]
+            },
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+        {
+            name: `comments`,
+            to: {
+                namespace: [`comments`]
+            },
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+    ],
+
+    // logLevel: 'debug',
+    // logLevel: 'error',
+    // logLevel: 'warning',
 })

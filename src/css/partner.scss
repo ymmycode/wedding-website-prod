@@ -2,6 +2,7 @@
 
 .partner-leave-active,
 .partner-enter-active,
+.partner-once-active,
 .partner-leave-active .transition,
 .partner-enter-active .transition
 {
@@ -14,12 +15,14 @@
 }
 
 .partner-leave-to .transition,
-.partner-enter .transition
+.partner-enter .transition,
+.partner-once .transition
 {
     transform: translateY(0);
 }
 
-.partner-enter-to .transition 
+.partner-enter-to .transition, 
+.partner-once-to .transition 
 {
     transform: translateY(100%);
 }
