@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { Sizes, Time, Resources } from './Utils'
+import { Sizes, Time, Resources, Debug } from './Utils'
 import Camera from './Camera'
 import Renderer from './Renderer'
 import { World } from './World'
@@ -86,8 +86,6 @@ export default class Experience
         // update renderer
         this.renderer.update()
 
-        // animating cube
-        // this.World.boxMesh.rotation.y += this.time.delta * 0.001
     }
 
     destroyThisScene()

@@ -36,7 +36,7 @@ export default class Environment
         // setting environment map
         this.environmentMap = {}
         this.environmentMap.texture = this.resources.items.environmentMapTexture
-        this.environmentMap.intensity = 2
+        this.environmentMap.intensity = 3
         this.environmentMap.texture.encoding = THREE.sRGBEncoding
 
         this.scene.environment = this.environmentMap.texture

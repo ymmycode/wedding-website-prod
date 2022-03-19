@@ -55,7 +55,7 @@ export default class Ring2
             bumpMap: 1,
         })
 
-        this.decalModel = this.decalRing.scene.children.find(child => child.name = `Ring003`)
+        this.decalModel = this.decalRing.scene.children.find(child => child.name === `Ring003`)
         this.decalModel.material = this.ringMaterial
     }
 }

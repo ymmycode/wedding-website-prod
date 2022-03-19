@@ -10,9 +10,6 @@ import barbaPrefetch from '@barba/prefetch'
 // importing scene
 import Experience from './Experience/Experience.js'
 
-// Canvas DOM
-const canvas =  document.querySelector(`canvas.webgl`)
-
 //url
 const homepage = `/`
 
@@ -26,6 +23,9 @@ window.onbeforeunload = () =>
     }, 0)
     window.onbeforeunload = null
 }
+
+// Canvas DOM
+const canvas =  document.querySelector(`canvas.webgl`)
 
 // Init Experience
 const experience = new Experience(canvas)

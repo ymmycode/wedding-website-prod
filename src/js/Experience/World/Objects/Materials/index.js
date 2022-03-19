@@ -1,0 +1,8 @@
+export {default as ColorPalette} from './ColorPalette'
+export {default as ColorPalette2} from './ColorPalette2'
+export {default as Wood} from './Wood'
+export {default as MapEnv} from './MapEnv'
+export {default as MapDesign} from './MapDesign'
+export {default as ShadowFloor} from './ShadowFloor'
+export {default as FlowerDecor} from './FlowerDecor'
+export {default as PhotoPlaceholder} from './PhotoPlaceholder'
