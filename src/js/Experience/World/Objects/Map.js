@@ -25,7 +25,6 @@ export default class Map
 
         // map scene
         this.mapScene = this.resources.items.mapScene
-        console.log(this.mapScene)
 
         // setting up
         this.setModel()
@@ -37,7 +36,9 @@ export default class Map
     {
         this.mapModel = this.mapScene.scene
         this.mapModel.scale.set(3.5, 3.5, 3.5)
-        this.scene.add(this.mapModel)
+
+        //adding map to the actual scene
+        // this.scene.add(this.mapModel)
     }
 
     setMaterials()

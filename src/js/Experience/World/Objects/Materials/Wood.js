@@ -8,9 +8,6 @@ export default class Wood
         // experience   
         this.experience = new Experience()
 
-        // scene
-        this.scene = this.experience.scene
-
         // resources
         this.resources = this.experience.resources
 

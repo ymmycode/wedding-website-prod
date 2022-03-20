@@ -8,9 +8,6 @@ export default class ColorPalette2
         // experience   
         this.experience = new Experience()
 
-        // scene
-        this.scene = this.experience.scene
-
         // resources
         this.resources = this.experience.resources
 

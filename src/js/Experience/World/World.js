@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import Experience from "../Experience";
 import Environment from './Environment';
-import { Ring1, Ring2, Map, Gate } from './Objects'
+import { Rings, Map, Gate } from './Objects'
 
 export default class World 
 {
@@ -22,10 +22,6 @@ export default class World
         // enable autoRotate
         this.autoRotate = true
 
-        // Grouping
-        this.ringGroup = new THREE.Group()
-        this.ringGroupParent = new THREE.Group()
-
         // listen to resources, is ready or not
         this.resources.on(`ready`, () => 
         {
@@ -38,8 +34,7 @@ export default class World
             this.map = new Map()
 
             // Rings
-            this.ringSetup()
-            // this.scene.add(this.ringGroupParent)
+            this.rings = new Rings()
 
             // Environment setup
             this.environment = new Environment()
@@ -51,21 +46,9 @@ export default class World
     {
         if(this.autoRotate)
         {
-            this.ringGroup.rotation.y += this.time.delta * .001 / 3
-        }
+            if(this.rings) this.rings.rotate()
+        } 
 
         if(this.map) this.map.update()
-    }
-
-    ringSetup()
-    {
-        this.ring1 = new Ring1()
-        this.ring2 = new Ring2()
-        this.ringGroup.add(this.ring1.baseRing.scene)
-        this.ringGroup.add(this.ring1.decalRing.scene)
-        this.ringGroup.add(this.ring2.baseRing.scene)
-        this.ringGroup.add(this.ring2.decalRing.scene)
-        this.ringGroup.rotation.y = Math.PI * .2
-        this.ringGroupParent.add(this.ringGroup)
     }
 }

@@ -7,10 +7,7 @@ export default class MapEnv
     {
         // experience   
         this.experience = new Experience()
-
-        // scene
-        this.scene = this.experience.scene
-
+        
         // resources
         this.resources = this.experience.resources
 

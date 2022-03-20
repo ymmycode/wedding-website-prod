@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import Experience from '../../Experience'
+import Experience from '../../../Experience'
 
 export default class Ring2
 {
@@ -7,9 +7,6 @@ export default class Ring2
     {
         // experience   
         this.experience = new Experience()
-
-        // scene
-        this.scene = this.experience.scene
 
         // resources
         this.resources = this.experience.resources
@@ -24,7 +21,7 @@ export default class Ring2
 
         // setting up
         this.setTextures()
-        this.setMaterials()
+        this.setDecalMaterials()
         this.setModels()
     }
 
@@ -43,7 +40,7 @@ export default class Ring2
         this.ringNormal.flipY = false
     }
 
-    setMaterials()
+    setDecalMaterials()
     {
         this.ringMaterial = new THREE.MeshStandardMaterial({
             color: new THREE.Color(`#E7BB5A`),
