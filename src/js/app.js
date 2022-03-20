@@ -1,13 +1,12 @@
+// easter egg
+console.log('%cMade with heart by', `color: mediumpurple; font-size: 15px; `)
+console.log('%c ', 'font-size: 50px; background:url(https://raw.githubusercontent.com/ymmycode/wedding-website-prod/wip-3d-scene/static/easter/easter.gif) no-repeat; padding-right: 500px; padding-bottom: 70px')
+
 // import plugin
 import barba from '@barba/core'
 import barbaCss from '@barba/css'
 import barbaPrefetch from '@barba/prefetch'
 // import gsap from 'gsap''
-
-console.log(
-    '%c ', 
-    'font-size:300px; background:url(https://thumbs.gfycat.com/FluffyFarIndianabat-size_restricted.gif) no-repeat;'
-);
 
 // importing animation
 // import {revealPage} from './Animation'
