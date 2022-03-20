@@ -2,7 +2,12 @@
 import barba from '@barba/core'
 import barbaCss from '@barba/css'
 import barbaPrefetch from '@barba/prefetch'
-// import gsap from 'gsap'
+// import gsap from 'gsap''
+
+console.log(
+    '%c ', 
+    'font-size:300px; background:url(https://thumbs.gfycat.com/FluffyFarIndianabat-size_restricted.gif) no-repeat;'
+);
 
 // importing animation
 // import {revealPage} from './Animation'
