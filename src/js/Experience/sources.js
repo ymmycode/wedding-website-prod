@@ -155,6 +155,62 @@ export default
         path: 'textures/map-design/MapDesign1.png'
     },
 
+    {
+        // partner photo 1
+        name: 'partnerPhoto1',
+        type: 'texture',
+        path: 'textures/PartnerPhotos/PartnerPhoto1.jpg'
+    },
+    
+    {
+        // partner photo 2
+        name: 'partnerPhoto2',
+        type: 'texture',
+        path: 'textures/PartnerPhotos/PartnerPhoto2.jpg'
+    },
+    
+    {
+        // flower decor for photo frame (color)
+        name: 'frameDecorColor',
+        type: 'texture',
+        path: 'textures/PartnerPhotos/framedecor-color.jpg'
+    },
+        
+    {
+        // flower decor for photo frame (alpha)
+        name: 'frameDecorAlpha',
+        type: 'texture',
+        path: 'textures/PartnerPhotos/framedecor-alpha.jpg'
+    },
+            
+    {
+        // frame partner photo model
+        name: 'photoFrame',
+        type: 'gltfModel',
+        path: 'models/frame/PhotoFrame.glb'
+    },
+                            
+    {
+        // frame partner photo model
+        name: 'photoFrame2',
+        type: 'gltfModel',
+        path: 'models/frame/PhotoFrame2.glb'
+    },
+                
+    {
+        // Gallery
+        name: 'gallery',
+        type: 'gltfModel',
+        path: 'models/gallery/gallery.glb'
+    },
+                    
+    {
+        // gallery texture
+        name: 'galleryTexture',
+        type: 'texture',
+        path: 'textures/gallery/gallery.jpg'
+    },
+    
     // {
     //     // 
     //     name: '',

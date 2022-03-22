@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import Experience from "../Experience";
 import Environment from './Environment';
-import { Rings, Map, Gate } from './Objects'
+import { Rings, Map, Gate, PartnerPhotos, Gallery } from './Objects'
 
 export default class World 
 {
@@ -36,6 +36,12 @@ export default class World
             // Rings
             this.rings = new Rings()
 
+            // Partner Photos
+            this.partnerPhotos = new PartnerPhotos()
+
+            // Gallery
+            this.gallery = new Gallery()
+
             // Environment setup
             this.environment = new Environment()
 
@@ -47,6 +53,7 @@ export default class World
         if(this.autoRotate)
         {
             if(this.rings) this.rings.rotate()
+            if(this.gallery) this.gallery.update()
         } 
 
         if(this.map) this.map.update()

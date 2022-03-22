@@ -1,6 +1,6 @@
 // easter egg
-console.log('%cMade with heart by', `color: mediumpurple; font-size: 15px; `)
-console.log('%c ', 'font-size: 50px; background:url(https://raw.githubusercontent.com/ymmycode/wedding-website-prod/wip-3d-scene/static/easter/easter.gif) no-repeat; padding-right: 500px; padding-bottom: 70px')
+// console.log('%cMade with heart by', `color: mediumpurple; font-size: 15px; `)
+// console.log('%c ', 'font-size: 50px; background:url(https://raw.githubusercontent.com/ymmycode/wedding-website-prod/wip-3d-scene/static/easter/easter.gif) no-repeat; padding-right: 500px; padding-bottom: 70px')
 
 // import plugin
 import barba from '@barba/core'
@@ -38,10 +38,24 @@ const experience = new Experience(canvas)
 barba.use(barbaCss)
 barba.use(barbaPrefetch)
 
+// adding delay to async
+const delay = () => 
+{
+    n = n || 2000
+    return new Promise((done) => 
+    {
+        setTimeout(() => 
+        {
+            done()
+        }, n)
+    })
+}
+
 // barba initialization
 barba.init({
+    sync: true,
 
-        // views: [
+    // views: [
     //     {
     //         namespace: 'comments',
     //         beforeEnter({next})

@@ -1,4 +1,3 @@
-import * as THREE from 'three'
 import Experience from '../../Experience'
 import { 
     ColorPalette, 
@@ -26,13 +25,12 @@ export default class Gate
 
         // gate scene
         this.gateScene = this.resources.items.gateScene.scene
-        this.gateScene.position.set(4, 0, 4)
         
         // setting up
         this.setMaterials()
 
         // adding to the scene
-        // this.scene.add(this.gateScene)
+        this.scene.add(this.gateScene)
     }
 
     setMaterials()

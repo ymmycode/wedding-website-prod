@@ -26,6 +26,8 @@ export default class Rings
 
         // ring setup
         this.ringSetup()
+
+        // adding to the scene
         this.scene.add(this.ringGroupParent)
 
         this.rotate()
@@ -39,7 +41,7 @@ export default class Rings
         this.ringGroup.add(this.ring1.decalRing.scene)
         this.ringGroup.add(this.ring2.baseRing.scene)
         this.ringGroup.add(this.ring2.decalRing.scene)
-        this.ringGroup.rotation.y = Math.PI * .2
+        this.ringGroup.rotation.y = - Math.PI * .25
         this.ringGroupParent.add(this.ringGroup)
     }
 

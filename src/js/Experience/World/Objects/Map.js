@@ -38,7 +38,7 @@ export default class Map
         this.mapModel.scale.set(3.5, 3.5, 3.5)
 
         //adding map to the actual scene
-        // this.scene.add(this.mapModel)
+        this.scene.add(this.mapModel)
     }
 
     setMaterials()
