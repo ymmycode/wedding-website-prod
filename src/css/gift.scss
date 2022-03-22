@@ -1,0 +1,28 @@
+/* Transition with cover screen */
+
+.gift-leave-active,
+.gift-enter-active,
+.gift-once-active,
+.gift-leave-active .transition,
+.gift-enter-active .transition
+{
+    transition: transform .5s var(--easing);
+}
+
+.gift-leave .transition 
+{
+    transform: translateY(-100%);
+}
+
+.gift-leave-to .transition,
+.gift-enter .transition,
+.gift-once .transition
+{
+    transform: translateY(0);
+}
+
+.gift-enter-to .transition ,
+.gift-once-to .transition 
+{
+    transform: translateY(100%);
+}

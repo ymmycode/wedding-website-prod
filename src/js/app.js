@@ -1,45 +1,156 @@
+// easter egg
+// console.log('%cMade with heart by', `color: mediumpurple; font-size: 15px; `)
+// console.log('%c ', 'font-size: 50px; background:url(https://raw.githubusercontent.com/ymmycode/wedding-website-prod/wip-3d-scene/static/easter/easter.gif) no-repeat; padding-right: 500px; padding-bottom: 70px')
+
+// import plugin
 import barba from '@barba/core'
 import barbaCss from '@barba/css'
 import barbaPrefetch from '@barba/prefetch'
+// import gsap from 'gsap''
 
-// DOM
-const body = document.querySelector(`body`)
+// importing animation
+// import {revealPage} from './Animation'
 
-// Barba Global hook, run befor any transition
-barba.hooks.before((data) => 
+// importing scene
+import Experience from './Experience/Experience.js'
+
+//url
+const homepage = `/`
+
+// when user refresh the page, redirect to hompeage
+// solution 2
+window.onbeforeunload = () => 
 {
-    // getting color data from background dataset
-    const background = data.current.container.dataset.background 
-    // console.log(background) // expected value hexadecimal color from data-background
-    
-    // and set background color
-    body.style.setProperty(`--page-background`, background)
-})
+    window.setTimeout(()=> 
+    {
+        window.location.href = homepage
+    }, 0)
+    window.onbeforeunload = null
+}
+
+// Canvas DOM
+const canvas =  document.querySelector(`canvas.webgl`)
+
+// Init Experience
+const experience = new Experience(canvas)
 
 // tell barba to use plugins
 barba.use(barbaCss)
 barba.use(barbaPrefetch)
 
+// adding delay to async
+const delay = () => 
+{
+    n = n || 2000
+    return new Promise((done) => 
+    {
+        setTimeout(() => 
+        {
+            done()
+        }, n)
+    })
+}
+
 // barba initialization
 barba.init({
+    sync: true,
+
+    // views: [
+    //     {
+    //         namespace: 'comments',
+    //         beforeEnter({next})
+    //         {
+    //             //
+    //         },
+    //     },
+    // ],
+
     transitions: [
         {
+            // don't mind the enter transition at home page
+            // just want to use leave transition
             name: `home`,
-            // sync: true,
             to: {
                 namespace: [`home`]
             },
-            // once(){}, // page load animation 
-            leave(){}, // leaving transition
-            enter(){}, // entering transition 
+            // once(){},
+            leave(){},
+            enter(){}
         },
+        
         {
-            name: `contact`,
+            name: `ring`,
             to: {
-                namespace: [`contact`]
+                namespace: [`ring`]
             },
-            leave(){}, // leaving transition
-            enter(){}, // entering transition
-        }
-    ]
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+        {
+            name: `partner`,
+            to: {
+                namespace: [`partner`]
+            },
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+        {
+            name: `location`,
+            to: {
+                namespace: [`location`]
+            },
+            once(){},
+            leave(){},
+            enter(){} 
+        },
+
+        {
+            name: `quote`,
+            to: {
+                namespace: [`quote`]
+            },
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+        {
+            name: `story`,
+            to: {
+                namespace: [`story`]
+            },
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+        {
+            name: `gift`,
+            to: {
+                namespace: [`gift`]
+            },
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+        {
+            name: `comments`,
+            to: {
+                namespace: [`comments`]
+            },
+            once(){},
+            leave(){},
+            enter(){}
+        },
+
+    ],
+
+    // logLevel: 'debug',
+    // logLevel: 'error',
+    // logLevel: 'warning',
 })

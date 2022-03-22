@@ -3,22 +3,32 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Barba.js with Barba CSS Plugin</title>
+    <title>The Wedding of Rizki and Fitri</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link href="assets/app.css" rel="stylesheet">
   </head>
   <body data-barba="wrapper">
 
-    <header data-barba="container" data-barba-namespace="home" class="is-home" data-background="#5C85EE">
-      <div class="transition">
-        <h2>Cover Screen</h2>
-      </div>
-      <div class="content">
-        <h1>We are learning<br />page transitions<br />with Barba.js</h1>
-        <p>This demo is using @barba/css plugin.</p>
-        <a href="/contact">Contact Page</a>
-      </div>
-    </header>
+    <!-- canvas for webgl -->
+    <canvas class="webgl"></canvas>
+
+
+    <main data-barba="container" data-barba-namespace="home">
+      <header class="is-home" >
+        <div class="transition">
+          <h2>Invitation Cover</h2>
+        </div>
+        <div class="content">
+          <h1>Gate</h1>
+          <p>Slide Next Page</p>
+          <a href="/ring">Next Page</a>
+        </div>
+      </header>
+    </main>
+
+    <!-- Music player -->
+
+    <!-- Navbar for pages-->
     
     <script src="assets/app.js"></script>
   </body>

@@ -27,13 +27,45 @@ module.exports = (env, argv) => ({
             to: '[name].[ext]',
           }, 
           {
-            from: path.resolve(__dirname, './src/contact/index.html'),
-            to: 'contact/[name].[ext]',
+            from: path.resolve(__dirname, './src/ring/index.html'),
+            to: 'ring/[name].[ext]',
+          },
+          {
+            from: path.resolve(__dirname, './src/partner/index.html'),
+            to: 'partner/[name].[ext]',
+          },
+          {
+            from: path.resolve(__dirname, './src/comments/index.html'),
+            to: 'comments/[name].[ext]',
+          },
+          {
+            from: path.resolve(__dirname, './src/gift/index.html'),
+            to: 'gift/[name].[ext]',
+          },
+          {
+            from: path.resolve(__dirname, './src/location/index.html'),
+            to: 'location/[name].[ext]',
+          },
+          {
+            from: path.resolve(__dirname, './src/our-stories/index.html'),
+            to: 'our-stories/[name].[ext]',
+          },
+          {
+            from: path.resolve(__dirname, './src/quote-ayat/index.html'),
+            to: 'quote-ayat/[name].[ext]',
           },
           {
             from: 'src/images/*',
             to: 'images/[name].[ext]',
           },
+          // {
+          //   from: path.resolve(__dirname, './src/ring/index.html'),
+          //   to: 'ring/[name].[ext]',
+          // },
+          // {
+          //   from: path.resolve(__dirname, './src/ring/index.html'),
+          //   to: 'ring/[name].[ext]',
+          // },
         ],
       }),
     ],
@@ -110,7 +142,7 @@ module.exports = (env, argv) => ({
     contentBase: [
       path.join(__dirname, '/src'),
     ],
-    host: '127.0.0.1',
+    host: '0.0.0.0',
     disableHostCheck: true,
     watchContentBase: true,
     compress: true,

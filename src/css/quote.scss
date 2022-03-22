@@ -1,0 +1,28 @@
+/* Transition with cover screen */
+
+.quote-leave-active,
+.quote-enter-active,
+.quote-once-active,
+.quote-leave-active .transition,
+.quote-enter-active .transition
+{
+    transition: transform .5s var(--easing);
+}
+
+.quote-leave .transition 
+{
+    transform: translateY(-100%);
+}
+
+.quote-leave-to .transition,
+.quote-enter .transition,
+.quote-once .transition
+{
+    transform: translateY(0);
+}
+
+.quote-enter-to .transition ,
+.quote-once-to .transition 
+{
+    transform: translateY(100%);
+}
