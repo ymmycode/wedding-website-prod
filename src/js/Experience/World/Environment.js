@@ -14,21 +14,8 @@ export default class Environment
         // resource
         this.resources = this.experience.resources
 
-        // testing light
-        // will disable later
-        this.sunLight()
-
         // environment map (cube hdr)
         this.setEnvironmentMap()
-    }
-
-    sunLight()
-    {
-        this.sunLight = new THREE.DirectionalLight(`#fffee5`, 2)
-        this.sunLight.castShadow = true
-        this.sunLight.position.set(3, 3, -2.25)
-        this.scene.add(this.sunLight)
-        this.scene.add(this.sunLight.target)
     }
 
     setEnvironmentMap()
@@ -36,7 +23,7 @@ export default class Environment
         // setting environment map
         this.environmentMap = {}
         this.environmentMap.texture = this.resources.items.environmentMapTexture
-        this.environmentMap.intensity = 3
+        this.environmentMap.intensity = 4
         this.environmentMap.texture.encoding = THREE.sRGBEncoding
 
         this.scene.environment = this.environmentMap.texture

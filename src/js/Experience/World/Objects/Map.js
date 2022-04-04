@@ -18,6 +18,13 @@ export default class Map
         // resources
         this.resources = this.experience.resources
 
+        // group
+        this.group = new THREE.Group()
+        this.groupParent = new THREE.Group()
+
+        // auto rotate
+        this.autoRotate = true
+
         // map material
         this.colorPalette = new ColorPalette2()
         this.bakedEnv = new MapEnv()
@@ -30,15 +37,26 @@ export default class Map
         this.setModel()
         this.setAnimation()
         this.setMaterials()
+
+        // for enter animation
+        this.group.position.set(0, -60, 0)
+        // responsive
+
+        this.setDesktop()
     }
 
     setModel()
     {
         this.mapModel = this.mapScene.scene
-        this.mapModel.scale.set(3.5, 3.5, 3.5)
+        this.mapModel.scale.set(2.5, 2.5, 2.5)
+        // this.mapModel.rotation.y = -Math.PI * .3
+        this.mapModel.rotation.y = -Math.PI * .5
+        this.mapModel.position.y = -.2
 
         //adding map to the actual scene
-        this.scene.add(this.mapModel)
+        this.group.add(this.mapModel)
+        this.groupParent.add(this.group)
+        this.scene.add(this.groupParent)
     }
 
     setMaterials()
@@ -82,5 +100,20 @@ export default class Map
     update()
     {
         this.animation.mixer.update(this.time.delta * 0.001 / 1.5)
+
+        if(this.autoRotate)
+        {
+            this.group.rotation.y = Math.sin( this.time.elapsed * 0.001 / 12)
+        }
+    }
+
+    setDesktop()
+    {
+        this.mapModel.scale.set(2.5, 2.5, 2.5)
+    }
+
+    setMobile()
+    {
+        this.mapModel.scale.set(1.6, 1.6, 1.6)
     }
 }

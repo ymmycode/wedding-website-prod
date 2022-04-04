@@ -4,7 +4,7 @@
   "description": "Wedding page with barba.js, three.js, and firebase",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack serve --mode development",
+    "dev": "webpack serve --https --mode development",
     "build": "webpack --mode production"
   },
   "devDependencies": {
@@ -31,9 +31,7 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
-    "@barba/css": "^2.1.15",
     "@barba/prefetch": "^2.1.10",
-    "@barba/router": "^2.1.10",
     "firebase": "^9.6.8",
     "gsap": "^3.9.1",
     "reset-css": "^5.0.1",

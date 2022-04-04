@@ -1,28 +1,124 @@
-/* Transition with cover screen */
-
-.ring-leave-active,
-.ring-enter-active,
-.ring-once-active,
-.ring-leave-active .transition,
-.ring-enter-active .transition
+.ring-text
 {
-    transition: transform .5s var(--easing);
+    opacity: 0;
 }
 
-.ring-leave .transition 
+.date-counter, .wedding-date
 {
-    transform: translateY(-100%);
+    font-family: 'Montserrat', sans-serif;
+    // font-family: 'Bodoni Moda', serif;
 }
 
-.ring-leave-to .transition,
-.ring-enter .transition,
-.ring-once .transition
+.date-counter, .wedding-date, .wedding-partner
 {
-    transform: translateY(0);
+    top: 50%;
+    left: 50%;
 }
 
-.ring-enter-to .transition,
-.ring-once-to .transition 
+.date-counter
 {
-    transform: translateY(100%);
+    // text-align: center;
+    position: absolute;
+    font-size: 20vmin;
+    transform: translateX(-50%) translateY(-170%);
+    opacity: 0.06;
+    // opacity: 0;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.wedding-date
+{
+    font-weight: 800;
+    font-size: 9vmin;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    transform: translateX(-50%) translateY(-460%);
+    opacity: .4;
+    // opacity: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.wedding-partner
+{
+    // opacity: 0;
+    font-family: 'Great Vibes', cursive;
+    font-size: 14vmin;
+    // font-weight: 600;
+    display: flex;
+    position: absolute;
+    transform: translateX(-50%) translateY(120%);
+
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    div.punctuation
+    {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    div.first-partner, div.second-partner
+    {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px)
+{
+    .date-counter
+    {
+        font-size: 18vmin;
+        transform: translateX(-50%) translateY(140%);
+    }
+
+    .wedding-date
+    {
+        font-size: 9vmin;
+        transform: translateX(-50%) translateY(460%);
+    }
+
+    .wedding-partner
+    {
+        font-size: 14vmin;
+        transform: translateX(-50%) translateY(-130%);
+
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+
+        div.punctuation
+        {
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        // div.first-partner
+        // {
+        //     transform: translateX(-15%);
+        // }
+
+        // div.second-partner
+        // {
+        //     transform: translateX(15%);
+        // }
+    }
 }

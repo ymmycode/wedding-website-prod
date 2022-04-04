@@ -1,6 +1,6 @@
 import {GalleryPhotos} from './Materials'
 import Experience from '../../Experience'
-
+import * as THREE from 'three'
 
 export default class Gallery 
 {
@@ -18,6 +18,9 @@ export default class Gallery
         // time
         this.time = this.experience.time
 
+        // group
+        this.group = new THREE.Group()
+
         // model
         this.galleryScene = this.resources.items.gallery
 
@@ -25,12 +28,16 @@ export default class Gallery
         this.galleryPhotos = new GalleryPhotos()
 
         // scene
-        this.scene.add(this.galleryScene.scene)
+        this.group.add(this.galleryScene.scene)
+        this.scene.add(this.group)
 
         // setting up
         this.setModel()
         this.setMaterial()
         this.update()
+
+        // for animation enter
+        this.group.position.set(0, -100, 0)
     }
 
     setModel()

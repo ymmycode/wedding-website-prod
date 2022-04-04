@@ -1,28 +1,104 @@
-/* Transition with cover screen */
-
-.location-leave-active,
-.location-enter-active,
-.location-once-active,
-.location-leave-active .transition,
-.location-enter-active .transition
+.title-location
 {
-    transition: transform .5s var(--easing);
+    // center position
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-35vmin);
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+    span
+    {
+        font-family: 'Great Vibes', cursive;
+        // font-weight: 600;
+        font-size: 15vmin;
+        opacity: 0;
+    }
 }
 
-.location-leave .transition 
+.geo-link
 {
-    transform: translateY(-100%);
+    font-size: 7vmin;
+    color: red;
+    position: fixed;
+    border-radius: 50%;
+    background-color: #e0cc8b;
+    width: 7vmin;
+    height: 7vmin;
+    filter: drop-shadow(0 0 15px #000);
+    z-index: 2;
+    right: 5vmin;
+    bottom: 7.2vmin;
+    opacity: 0;
+
+    svg
+    {
+        // center
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
-.location-leave-to .transition,
-.location-enter .transition,
-.location-once .transition
+.geo-link.animate
 {
-    transform: translateY(0);
+    animation: bounce 2s infinite;
 }
 
-.location-enter-to .transition,
-.location-once-to .transition 
+@keyframes bounce {
+    20%, 53%, 80%, 0%, 100% 
+    {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0);
+    }
+    40%, 43% 
+    {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -30px, 0);
+    }
+    70% 
+    {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -15px, 0);
+    }
+    90% 
+    {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+@media screen and (max-width: 480px) 
 {
-    transform: translateY(100%);
+    .title-location
+    {
+        transform: translateX(-50%) translateY(-50vmin);
+
+        span
+        {
+            font-size: 18vmin;
+        }
+    }
+
+    .geo-link
+    {
+        font-size: 9vmin;
+        width: 10vmin;
+        height: 10vmin;
+    }
+}
+
+@media screen and (max-width: 360px) 
+{
+    .geo-link
+    {
+        font-size: 11vmin;
+        width: 12vmin;
+        height: 12vmin;
+    }
 }

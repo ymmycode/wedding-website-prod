@@ -27,8 +27,10 @@ export default class Ring2
 
     setModels()
     {
-        this.baseRing.scene.scale.set(3,3,3)
-        this.decalRing.scene.scale.set(3,3,3)
+        this.baseRing.scene.position.x = -0.17
+        this.decalRing.scene.position.x = -0.17
+        this.baseRing.scene.scale.set(2,2,2)
+        this.decalRing.scene.scale.set(2,2,2)
     }
 
     setTextures()
