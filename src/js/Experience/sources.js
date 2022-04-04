@@ -211,6 +211,27 @@ export default
         path: 'textures/gallery/gallery.jpg'
     },
     
+    {
+        // enter button
+        name: 'enterButton',
+        type: 'texture',
+        path: 'textures/enter/enter-button.jpg'
+    },
+
+    {
+        // enter button 
+        name: 'enterButtonFirst',
+        type: 'texture',
+        path: 'textures/enter/enter-button-first.jpg'
+    },
+
+    {
+        // enter button 
+        name: 'enterButtonLast',
+        type: 'texture',
+        path: 'textures/enter/enter-button-last.jpg'
+    },
+
     // {
     //     // 
     //     name: '',
