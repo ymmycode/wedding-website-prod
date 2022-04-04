@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { Sizes, Time, Resources, Debug } from './Utils'
+import { Sizes, Time, Resources, Debug, Raycast, DeviceOrientation } from './Utils'
 import Camera from './Camera'
 import Renderer from './Renderer'
 import { World } from './World'
@@ -25,6 +25,9 @@ export default class Experience
 
         // webgl canvas
         this.canvas = canvas
+
+        // debug
+        this.debug = new Debug()
 
         // sizes
         this.sizes = new Sizes()
@@ -58,8 +61,17 @@ export default class Experience
         // World
         this.World = new World()
 
+        // raycast
+        this.raycast = new Raycast()
+
+        // device orientation
+        this.deviceOrientation = new DeviceOrientation()
+
         // how to destroy things
         this.destroyThisScene = this.destroyThisScene
+
+        // orientation sensor permission??
+        // document.querySelector(`.menu-btn`).addEventListener(`click`, this.deviceOrientation.permissionToActivate)
     }
 
     resize()
@@ -76,6 +88,12 @@ export default class Experience
     update()
     {
         // will update frame
+
+        // update sensor
+        this.deviceOrientation.updateSensor()
+
+        // update raycast
+        this.raycast.update()
 
         // update camera
         this.camera.update()

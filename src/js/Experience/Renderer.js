@@ -28,7 +28,8 @@ export default class Renderer
     {
         this.instance = new THREE.WebGLRenderer({
             antialias: true,
-            canvas: this.canvas
+            canvas: this.canvas,
+            alpha: true
         })
 
         this.instance.physicallyCorrectLights = true
@@ -36,7 +37,7 @@ export default class Renderer
         this.instance.toneMapping = THREE.NoToneMapping
         this.instance.toneMappingExposure = 1.75
         // this.instance.setClearColor(`#211d20`)
-        this.instance.setClearColor(`#E1EAC7`)
+        // this.instance.setClearColor(`#E1EAC7`)
         this.instance.setSize(this.sizes.width, this.sizes.height)
         this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2))
     }
