@@ -4,29 +4,46 @@
 
 // import plugin
 import barba from '@barba/core'
-import barbaCss from '@barba/css'
 import barbaPrefetch from '@barba/prefetch'
-// import gsap from 'gsap''
+import gsap from 'gsap'
 
 // importing animation
-// import {revealPage} from './Animation'
+import { 
+    showMenuButton,
+    resetMenu,
+    gateTransition, 
+    ringEnterTransition,
+    partnerEnterTransition,
+    locationEnterTransition,
+} from './Animation'
+
+// import menu
+import menu from './Menu/menu'
 
 // importing scene
 import Experience from './Experience/Experience.js'
 
-//url
-const homepage = `/`
-
-// when user refresh the page, redirect to hompeage
-// solution 2
-window.onbeforeunload = () => 
+// refresh automatically to home
+const refreshToTheHome = () => 
 {
-    window.setTimeout(()=> 
+    //url
+    const homepage = `/`
+
+    // when user refresh the page, redirect to hompeage
+    // solution 2
+    window.onbeforeunload = () => 
     {
-        window.location.href = homepage
-    }, 0)
-    window.onbeforeunload = null
+        window.setTimeout(()=> 
+        {
+            window.location.href = homepage
+        }, 0)
+        window.onbeforeunload = null
+    }
 }
+refreshToTheHome()
+
+// make gsap global
+// window.GSAP = gsap
 
 // Canvas DOM
 const canvas =  document.querySelector(`canvas.webgl`)
@@ -34,123 +51,104 @@ const canvas =  document.querySelector(`canvas.webgl`)
 // Init Experience
 const experience = new Experience(canvas)
 
-// tell barba to use plugins
-barba.use(barbaCss)
-barba.use(barbaPrefetch)
-
-// adding delay to async
-const delay = () => 
-{
-    n = n || 2000
-    return new Promise((done) => 
-    {
-        setTimeout(() => 
-        {
-            done()
-        }, n)
-    })
+// target for anmation
+const animationTargets = {
+    camera: experience.camera,
+    rings: () => {if(experience.World.rings) return experience.World.rings},
+    partner: () => {if(experience.World.partnerPhotos) return experience.World.partnerPhotos},
+    map: () => {if(experience.World.map) return experience.World.map}
 }
+
+// menu
+const resetMenuAndTransition = (container) => 
+{
+    document.querySelector(`.transition`).style.transform = `translateY(-100%);`
+    resetMenu(container)
+}
+
+
+// tell barba to use plugins
+barba.use(barbaPrefetch)
 
 // barba initialization
 barba.init({
-    sync: true,
-
-    // views: [
-    //     {
-    //         namespace: 'comments',
-    //         beforeEnter({next})
-    //         {
-    //             //
-    //         },
-    //     },
-    // ],
-
-    transitions: [
+    views: [
         {
-            // don't mind the enter transition at home page
-            // just want to use leave transition
-            name: `home`,
-            to: {
-                namespace: [`home`]
-            },
-            // once(){},
-            leave(){},
-            enter(){}
+            namespace: 'home',
+            beforeLeave: (({next}) => 
+            {
+                gateTransition(animationTargets.camera)
+            })
+        },
+
+        {
+            namespace: 'ring',
+            afterEnter: (({next}) => 
+            {
+                menu(next.container)
+
+                // ring leave animation
+                // scale down, hide
+                const enterTransition = setTimeout(() =>
+                {
+                    ringEnterTransition(animationTargets.camera, animationTargets.rings(), next.container)
+                    showMenuButton(next.container)
+                }, 1050)
+            }), 
+
+            beforeLeave: ({current}) =>
+            {
+                resetMenuAndTransition(current.container)
+            }
         },
         
         {
-            name: `ring`,
-            to: {
-                namespace: [`ring`]
-            },
-            once(){},
-            leave(){},
-            enter(){}
+            namespace: 'partner',
+            afterEnter: (({next}) => 
+            {
+                menu(next.container)
+
+                // ring leave animation
+                // scale down, hide
+                const enterTransition = setTimeout(() =>
+                {
+                    partnerEnterTransition(animationTargets.camera, animationTargets.partner(), next.container)
+                    showMenuButton(next.container)
+                }, 1050)
+            }), 
+
+            beforeLeave: ({current}) =>
+            {
+                resetMenuAndTransition(current.container)
+            }
         },
 
         {
-            name: `partner`,
-            to: {
-                namespace: [`partner`]
-            },
-            once(){},
-            leave(){},
-            enter(){}
-        },
+            namespace: 'location',
+            afterEnter: (({next}) => 
+            {
+                menu(next.container)
+                
+                // ring leave animation
+                // scale down, hide
+                const enterTransition = setTimeout(() =>
+                {
+                    locationEnterTransition(animationTargets.camera, animationTargets.map(), next.container)
+                    showMenuButton(next.container)
+                }, 1050)
+            }), 
 
-        {
-            name: `location`,
-            to: {
-                namespace: [`location`]
-            },
-            once(){},
-            leave(){},
-            enter(){} 
+            beforeLeave: ({current}) =>
+            {
+                resetMenuAndTransition(current.container)
+            }
         },
-
-        {
-            name: `quote`,
-            to: {
-                namespace: [`quote`]
-            },
-            once(){},
-            leave(){},
-            enter(){}
-        },
-
-        {
-            name: `story`,
-            to: {
-                namespace: [`story`]
-            },
-            once(){},
-            leave(){},
-            enter(){}
-        },
-
-        {
-            name: `gift`,
-            to: {
-                namespace: [`gift`]
-            },
-            once(){},
-            leave(){},
-            enter(){}
-        },
-
-        {
-            name: `comments`,
-            to: {
-                namespace: [`comments`]
-            },
-            once(){},
-            leave(){},
-            enter(){}
-        },
-
     ],
 
-    // logLevel: 'debug',
-    // logLevel: 'error',
-    // logLevel: 'warning',
 })
+
+
+// animation chamber
+// animationTargets.camera.controls.enabled = true
+
+// loading screen change z indx -99 to 4
