@@ -51,7 +51,7 @@ module.exports = (env, argv) => ({
             to: 'our-stories/[name].[ext]',
           },
           {
-            from: path.resolve(__dirname, './src/quote-ayat/index.html'),
+            from: path.resolve(__dirname, './src/quote/index.html'),
             to: 'quote-ayat/[name].[ext]',
           },
           {
