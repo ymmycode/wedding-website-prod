@@ -1,0 +1,237 @@
+.gift-content
+{
+    position: fixed;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .title-gift
+    {
+        font-family: 'Great Vibes', cursive;
+        padding-bottom: 40px;
+
+        span
+        {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            font-size: 13vmin;
+            opacity: 1;
+        }
+    }
+
+    .cards-container
+    {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        max-width: 1000px;
+
+        .card
+        {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+
+            background-color: white;
+
+            padding: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+            margin: 10px;
+            border-radius: 30px;
+
+            width: 275px;
+
+            img
+            {
+                padding-bottom: 15px;
+                max-width: 150px;
+            }
+        
+            span
+            {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 400;
+                text-align: center;
+            }
+
+            .owner
+            {
+                font-weight: 800;
+                padding-bottom: 20px;
+            }
+
+            .copy-btn
+            {
+                background-color: black;
+                padding: 10px;
+                padding-left: 30px;
+                padding-right: 30px;
+                border-radius: 20px;
+                
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+
+                cursor: pointer;
+
+                transition: background-color 0.3s linear;
+
+                .check
+                {
+                    display: none;
+                }
+
+                svg
+                {
+                    color: white;
+                    transition: background-color 0.3s linear;    
+                }
+
+                span
+                {
+                    font-weight: 400;
+                    padding-left: 5px;
+                    color: white;
+
+                    transition: background-color 0.3s linear;    
+                }
+
+                .val
+                {
+                    display: none;
+                }
+
+                .success
+                {
+                    display: none;
+                }
+            }
+
+            .copy-btn:hover
+            {
+                background-color: #72B580;
+
+                svg
+                {
+                    color: white;
+                }
+
+                span
+                {
+                    color: white;
+                }
+            }
+
+            .copy-btn.copied
+            {
+                background-color: #72B580;
+
+                .check
+                {
+                    display: inline;
+                }
+
+                svg
+                {
+                    display: none;
+                }
+
+                span
+                {
+                    display: none;
+                }
+
+                .success
+                {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) 
+{
+    .gift-content
+    {
+        top: 0px;
+        transform: translateY(0px);
+
+        justify-content: flex-start;
+        
+        height: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
+
+        .title-gift
+        {
+            margin-top: 50px;
+            padding-bottom: 40px;
+
+            span
+            {
+                font-family: 'Great Vibes', cursive;
+                font-weight: 400;
+                font-size: 13vmin;
+            }
+        }
+
+        .cards-container
+        {
+            max-width: 1000px;
+
+            margin-bottom: 100px;
+
+            .card
+            {
+                padding: 20px;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin: 10px;
+                border-radius: 30px;
+
+                img
+                {
+                    padding-bottom: 10px;
+                    max-width: 150px;
+                }
+            
+                span
+                {
+                    font-size: 1em;
+                }
+
+                .owner
+                {
+                    font-weight: 800;
+                    padding-bottom: 20px;
+                }
+
+                .copy-btn
+                {
+                    span
+                    {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
