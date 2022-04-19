@@ -1,0 +1,12 @@
+.loading-screen {
+    // change style later for loading screen
+
+    background-color: #E1EAC7;
+    // z-index: 4;
+    z-index: -99;
+
+    svg {
+        font-size: 10vmin;
+        color: #202020;
+    }
+}
