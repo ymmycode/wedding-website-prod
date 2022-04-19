@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import Experience from '../../../Experience'
+import { GoldMatcap } from '../Materials'
 
 export default class Ring1 
 {
@@ -10,6 +11,9 @@ export default class Ring1
 
         // resources
         this.resources = this.experience.resources
+
+        // gold matcap
+        this.matMaterial = new GoldMatcap()
 
         // ring1
         this.baseRing =  this.resources.items.baseRing1
@@ -38,21 +42,20 @@ export default class Ring1
     {
         this.ringAlpha.flipY = false
         this.ringNormal.flipY = false
+
+        this.base = this.baseRing.scene.children.find(child => child.name === `Ring`)
+        this.base.material = this.matMaterial.material
     }
 
     setDecalMaterials()
     {
-        this.ring1Material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color(`#E7BB5A`),
-            metalness: 1,
-            roughness: 0.1,
-            normalMap: this.ringNormal,
-            alphaMap: this.ringAlpha,
-            transparent: true,
-            bumpMap: 1,
-        })
+        this.ringMaterial = this.matMaterial.material.clone()
+        this.ringMaterial.normalMap = this.ringNormal
+        this.ringMaterial.alphaMap = this.ringAlpha
+        this.ringMaterial.transparent = true
+        this.ringMaterial.normalScale = 1
 
         this.decalModel = this.decalRing.scene.children.find(child => child.name === `Ring002`)
-        this.decalModel.material = this.ring1Material
+        this.decalModel.material = this.ringMaterial
     }
 }
