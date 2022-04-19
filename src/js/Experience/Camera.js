@@ -27,13 +27,12 @@ export default class Camera
         // orbit controls
         this.setOrbitControls()
 
-        this.testTargetCube()
         this.cameraDebug()
 
         // will implement camera transition to the next scene
 
-        // this.instance.position.set(0,-55, 10)
-        // this.controls.target.set(0, -60, 0)
+        // this.instance.position.set(0,-70, 10)
+        // this.controls.target.set(0, -70, 0)
     }
 
     setInstance()
@@ -71,18 +70,6 @@ export default class Camera
         this.instance.updateProjectionMatrix()
     }
 
-    testTargetCube()
-    {
-        // test target cube
-        this.mesh = new THREE.Mesh(
-            new THREE.BoxBufferGeometry(.3, .3, .3),
-            new THREE.MeshBasicMaterial({color: `#ff00ff`})
-        )
-        this.scene.add(this.mesh)
-        this.mesh.position.set(0.5, 0, -2)
-        this.mesh.material.visible = false
-    }
-
     cameraDebug()
     {
         this.debugFolder = this.debug.gui.addFolder(`Camera`)
@@ -90,7 +77,6 @@ export default class Camera
         this.debugFolder.add(this.controls, `enabled`).name(`enable control`)
         this.debugFolder.add(this.controls, `enableZoom`).name(`enable zoom`)
         this.debugFolder.add(this.controls, `enablePan`).name(`enable pan`)
-        this.debugFolder.add(this.mesh.material, `visible`).name(`show target cube`)
 
         this.debugFolder.add(this.instance.position, `x`, -20, 20, 0.0001).name(`posX`).listen()
         this.debugFolder.add(this.instance.position, `y`, -20, 20, 0.0001).name(`posY`).listen()
@@ -103,5 +89,11 @@ export default class Camera
     update()
     {
         this.controls.update()
+    }
+
+    resetFar()
+    {
+        this.instance.far = 20
+        this.instance.updateProjectionMatrix()
     }
 }
