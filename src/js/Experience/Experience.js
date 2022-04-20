@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { Sizes, Time, Resources, Debug, Raycast, DeviceOrientation } from './Utils'
+import { Sizes, Time, Resources, Debug, Raycast, DeviceOrientation, PerfStats } from './Utils'
 import Camera from './Camera'
 import Renderer from './Renderer'
 import { World } from './World'
@@ -23,8 +23,14 @@ export default class Experience
         // global access
         window.experience = this
 
+        // render disable or enable
+        this.renderEnabled = true
+
         // webgl canvas
         this.canvas = canvas
+
+        // Performance Stats
+        this.perfStats = new PerfStats()
 
         // debug
         this.debug = new Debug()
@@ -48,7 +54,7 @@ export default class Experience
 
         // THREE Scene
         this.scene = new THREE.Scene()
-        
+
         // resources
         this.resources = new Resources(sources)
 
@@ -87,23 +93,31 @@ export default class Experience
 
     update()
     {
-        // will update frame
+        // disable or enable render update
+        if(this.renderEnabled)
+        {
+            // will update frame
 
-        // update sensor
-        this.deviceOrientation.updateSensor()
+            // monitor performance
+            this.perfStats.stats.begin()
 
-        // update raycast
-        this.raycast.update()
+            // update sensor
+            this.deviceOrientation.updateSensor()
 
-        // update camera
-        this.camera.update()
+            // update raycast
+            this.raycast.update()
 
-        // update the world
-        this.World.update()
+            // update camera
+            this.camera.update()
 
-        // update renderer
-        this.renderer.update()
+            // update the world
+            this.World.update()
 
+            // update renderer
+            this.renderer.update()
+
+            this.perfStats.stats.end()
+        }
     }
 
     destroyThisScene()
