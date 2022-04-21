@@ -1,10 +1,11 @@
-import gsap from "gsap";
+import gsap from "gsap"
 
-const locationEnterTransition = (camera, mapScene, container) => 
+const quoteEnterTransition = (camera, container) => 
 {
-    const title = container.querySelectorAll(`.title-location span`)
-    const geoLink = container.querySelector(`.geo-link`)
     const transition = container.querySelector(`.transition`)
+    const title = container.querySelectorAll(`.title-quote span`)
+    const quote = container.querySelector(`.quote-content p`)
+    const quoteSource = container.querySelector(`.source`)
     const nextButton = container.querySelector(`.next-btn`)
     const nextSpan = container.querySelectorAll(`.next-btn span`)
     const loadingScreen = container.querySelector(`.loading-screen`)
@@ -20,18 +21,18 @@ const locationEnterTransition = (camera, mapScene, container) =>
     .fromTo(transition, {yPercent: 0}, {yPercent: 100, duration: 1, delay: .2}, 0)
     .to(transition, {yPercent: 200, duration: 1}, 1.5)
     .set(loadingScreen, {zIndex: -99}, 1.5)
+    .set(camera.instance.position, {y: -70, x: 0, z: 10}, 1.2)
+    .set(camera.controls.target, {y: -70, x: 0, z: 0}, 1.2)
     .from(title, {yPercent: 100, stagger: .1}, 2)
     .fromTo(title, {opacity: 0}, {opacity: 0.8, stagger: .1}, 2)
-    .fromTo(camera.instance.position, {y: -45, x: 0, z: 10}, {y: -55, x: 0, z: 10, duration: 3}, 1.2)
-    .fromTo(camera.controls.target, {y: -50, x: 0, z: 10}, {y: -60, x: 0, z: 0, duration: 1}, 1.2)
-    .from(geoLink, {xPercent: 200, x: 0, z: 0}, 3)
-    .fromTo(geoLink, {opacity: 0}, {opacity: 1}, 3)
+    .from(quote, {yPercent: 100}, 3)
+    .fromTo(quote, {opacity: 0}, {opacity: 0.8, stagger: .1}, 3)
+    .from(quoteSource, {yPercent: 200, duration: 3}, 3)
+    .fromTo(quoteSource, {opacity: 0}, {opacity: 0.8}, 3)
     .to(nextButton, {opacity: 1}, 3)
     .from(nextSpan, {yPercent: -20, stagger: .1}, 3)
-    .then(() => geoLink.classList.toggle(`animate`))
-    .then(() => camera.controls.enabled = true)
 
     return tl
 }
 
-export default locationEnterTransition
+export default quoteEnterTransition

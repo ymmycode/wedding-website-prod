@@ -27,15 +27,16 @@ export default class Renderer
     setInstance()
     {
         this.instance = new THREE.WebGLRenderer({
-            antialias: true,
+            antialias: false,
             canvas: this.canvas,
-            alpha: true
+            alpha: true,
+            powerPreference: "high-performance",
         })
 
-        this.instance.physicallyCorrectLights = true
+        // this.instance.physicallyCorrectLights = true
         this.instance.outputEncoding = THREE.sRGBEncoding
         this.instance.toneMapping = THREE.NoToneMapping
-        this.instance.toneMappingExposure = 1.75
+        // this.instance.toneMappingExposure = 1.75
         // this.instance.setClearColor(`#211d20`)
         // this.instance.setClearColor(`#E1EAC7`)
         this.instance.setSize(this.sizes.width, this.sizes.height)

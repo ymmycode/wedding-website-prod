@@ -26,7 +26,7 @@ export default class Resources extends EventEmitter
         // start loading assets
         this.startLoading()
 
-        console.log(this.items)
+        // console.log(this.items)
     }
 
     setLoaders()

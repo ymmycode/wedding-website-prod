@@ -1,0 +1,204 @@
+#comments-container
+{
+    position: fixed;
+    display: table;
+    z-index: 0;
+    width: 80%;
+    height: 75%;
+    left: 50%;
+    top: 4vmin;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+#allcomments
+{
+    display: table-cell;
+    font-family: 'Montserrat', sans-serif;
+    // margin: 1em 0 4em 1em;
+    padding: 3%;
+    border: solid 1px gray;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px silver;
+
+    .comment-title
+    {
+        font-weight: 900;
+        font-size: 4vmin;
+    }
+
+    .scroll
+    {
+        overflow: none;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        touch-action: auto;
+        max-height: 35vmin;
+        // height: 100%;
+
+        #pastcomments
+        {
+            list-style-type: none;
+            transform: rotate(180deg);
+
+            li
+            {
+                // margin: 0 0 2em;
+                padding-bottom: 1em;
+                padding-top: 2em;
+                // padding-left: 1em;
+                border-bottom: solid 1px gray;
+                font-weight: 400;
+
+                transform: rotate(-180deg);
+
+                span
+                {
+                    // margin-top: 10vmin;
+                    // display: inline-block;
+                    font-size: 90%;
+                    color: gray;
+                    font-style: italic;
+
+                    .comment-name
+                    {
+                        
+                        font-weight: 600;
+                        color: #867b52;
+                    }
+
+                    .comment-attend
+                    {
+                        font-weight: 600;
+                        color: #B4A0DD;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+.scroll::-webkit-scrollbar-track
+{
+    -webkit-box-shadow : inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar
+{
+    width: 6px;
+}
+
+.scroll::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #525252;
+}
+
+#newcomment
+{
+    border-bottom: solid 3px gray;
+    padding-bottom: 2em;
+
+    textarea, input[type="text"]
+    {
+        margin-top: 0;
+    }
+
+    textarea
+    {
+        width: 100%;
+        height: 72px;
+    }
+
+    label
+    {
+        display: inline-block;
+        margin: 1em 0 0.5em 0;
+        font-weight: 600;
+    }
+
+    input[type="submit"]
+    {
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: 900;
+        background-color: bisque;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background-color 0.3s linear;
+    }
+
+    input[type="submit"]:hover
+    {
+        background-color: rgb(255, 255, 255);
+        
+    }
+
+    input[type="radio"], label[for="txAttend"], label[for="txNotAttend"]
+    {
+        cursor: pointer;
+    }
+
+    label[for="txAttend"], label[for="txNotAttend"]
+    {
+        margin-right: 20px;
+    }
+}
+
+#btnSubmitComment
+{
+    margin-top: 1em;
+}
+
+@media screen and (max-width: 480px) 
+{
+
+    #comments-container
+    {
+        top: 8vmin;
+        height: 80%;
+    }
+
+    #allcomments
+    {
+        .comment-title
+        {
+            font-size: 6vmin;
+        }
+
+        .scroll
+        {
+            max-height: 70vmin;
+
+            #pastcomments
+            {
+                li
+                {
+                    span
+                    {
+                        font-size: 80%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 360px) 
+{
+    #allcomments
+    {
+        .comment-title
+        {
+            font-size: 6vmin;
+        }
+    
+        .scroll
+        {
+            max-height: 52vmin;
+        }
+    }
+}

@@ -14,20 +14,22 @@ export default class DeviceOrientation
         this.euler = new THREE.Euler()
 
         
-        this.startSensor()
 
-        Promise.all([navigator.permissions.query({ name: "accelerometer" }),
-            navigator.permissions.query({ name: "magnetometer" }),
-            navigator.permissions.query({ name: "gyroscope" })])
-            .then(results => {
-                if (results.every(result => result.state === "granted")) {
-                    this.sensorAbs.start()
-                } 
-                else 
-                {
-                    console.log("No permissions to use AbsoluteOrientationSensor.")
-                }
-        })
+        // Promise.all([navigator.permissions.query({ name: "accelerometer" }),
+        //     navigator.permissions.query({ name: "magnetometer" }),
+        //     navigator.permissions.query({ name: "gyroscope" })])
+        //     .then(results => {
+        //         if (results.every(result => result.state === "granted")) {
+        //             this.sensorAbs.start()
+        //         } 
+        //         else 
+        //         {
+        //             console.log("No permissions to use AbsoluteOrientationSensor.")
+        //         }
+        // })
+
+        // this.startSensor()
+
 
         // this.orientation()
     }

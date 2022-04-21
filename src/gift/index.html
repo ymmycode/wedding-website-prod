@@ -4,27 +4,109 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>The Wedding of Rizki and Fitri</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link href="assets/app.css" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="/assets/app.css" rel="stylesheet">
   </head>
   <body data-barba="wrapper">
+
+    <!-- canvas for webgl -->
+    <canvas class="webgl"></canvas>
 
     <main data-barba="container" data-barba-namespace="gift" >
       <header class="is-gift">
         <div class="transition">
           <h2>Invitation Cover</h2>
         </div>
-        <div class="content">
-          <h1>Gift & Donation</h1>
-          <p>Slide Next Page</p>
-          <a href="/comments">Next Page</a>
-        </div>
       </header>
+
+      <div class="loading-screen">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z" opacity=".5"/><path fill="currentColor" d="M20 12h2A10 10 0 0 0 12 2V4A8 8 0 0 1 20 12Z"><animateTransform attributeName="transform" dur="1s" from="0 12 12" repeatCount="indefinite" to="360 12 12" type="rotate"/></path></svg>
+      </div>
+
+      <div class="gift-content">
+        <div class="title-gift">
+          <span>Kirim</span><span>Hadiah</span>
+        </div>
+  
+        <div class="cards-container">
+          <div class="card">
+            <img src="../images/logo-bank/logo-bank-placeholder.png" alt="Bank-Logo-1">
+            <span>Silahkan transfer ke rekening</span>
+            <span class="owner">a.n FN LN</span>
+            <div class="copy-btn">
+              <svg class="check" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="currentColor" d="M24 4c11.046 0 20 8.954 20 20s-8.954 20-20 20S4 35.046 4 24S12.954 4 24 4Zm0 2.5C14.335 6.5 6.5 14.335 6.5 24S14.335 41.5 24 41.5S41.5 33.665 41.5 24S33.665 6.5 24 6.5Zm8.634 11.116a1.25 1.25 0 0 1 0 1.768l-11 11a1.25 1.25 0 0 1-1.768 0l-4.5-4.5a1.25 1.25 0 0 1 1.768-1.768l3.616 3.616l10.116-10.116a1.25 1.25 0 0 1 1.768 0Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-linejoin="round" d="M15.5 4H18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2.5"/><path stroke-linejoin="round" d="M8.621 3.515A2 2 0 0 1 10.561 2h2.877a2 2 0 0 1 1.94 1.515L16 6H8l.621-2.485Z"/><path d="M9 12h6m-6 4h6"/></g></svg>
+              <span class="val">01928309</span>
+              <span>Salin No. Rek.</span>
+              <span class="success">Tersalin</span>
+            </div>
+          </div>
+  
+          <div class="card">
+            <img src="../images/logo-bank/logo-bank-placeholder.png" alt="Bank-Logo-1">
+            <span>Silahkan transfer ke rekening</span>
+            <span class="owner">a.n FN LN</span>
+            <div class="copy-btn">
+              <svg class="check" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="currentColor" d="M24 4c11.046 0 20 8.954 20 20s-8.954 20-20 20S4 35.046 4 24S12.954 4 24 4Zm0 2.5C14.335 6.5 6.5 14.335 6.5 24S14.335 41.5 24 41.5S41.5 33.665 41.5 24S33.665 6.5 24 6.5Zm8.634 11.116a1.25 1.25 0 0 1 0 1.768l-11 11a1.25 1.25 0 0 1-1.768 0l-4.5-4.5a1.25 1.25 0 0 1 1.768-1.768l3.616 3.616l10.116-10.116a1.25 1.25 0 0 1 1.768 0Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-linejoin="round" d="M15.5 4H18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2.5"/><path stroke-linejoin="round" d="M8.621 3.515A2 2 0 0 1 10.561 2h2.877a2 2 0 0 1 1.94 1.515L16 6H8l.621-2.485Z"/><path d="M9 12h6m-6 4h6"/></g></svg>
+              <span class="val">498273493</span>
+              <span>Salin No. Rek.</span>
+              <span class="success">Tersalin</span>
+            </div>
+          </div>
+  
+          <div class="card">
+            <img src="../images/logo-bank/logo-bank-placeholder.png" alt="Bank-Logo-1">
+            <span>Jl HR Rasuna Said Kav B-7 Ged Lina 503 A Lt 5/503 A, Dki Jakarta</span>
+            <span class="owner">a.n FN LN</span>
+            <div class="copy-btn">
+              <svg class="check" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="currentColor" d="M24 4c11.046 0 20 8.954 20 20s-8.954 20-20 20S4 35.046 4 24S12.954 4 24 4Zm0 2.5C14.335 6.5 6.5 14.335 6.5 24S14.335 41.5 24 41.5S41.5 33.665 41.5 24S33.665 6.5 24 6.5Zm8.634 11.116a1.25 1.25 0 0 1 0 1.768l-11 11a1.25 1.25 0 0 1-1.768 0l-4.5-4.5a1.25 1.25 0 0 1 1.768-1.768l3.616 3.616l10.116-10.116a1.25 1.25 0 0 1 1.768 0Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-linejoin="round" d="M15.5 4H18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2.5"/><path stroke-linejoin="round" d="M8.621 3.515A2 2 0 0 1 10.561 2h2.877a2 2 0 0 1 1.94 1.515L16 6H8l.621-2.485Z"/><path d="M9 12h6m-6 4h6"/></g></svg>
+              <span class="val">Jl HR Rasuna Said Kav B-7 Ged Lina 503 A Lt 5/503 A, Dki Jakarta</span>
+              <span>Salin Alamat</span>
+              <span class="success">Tersalin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation menu for pages-->
+      <div class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <a class="links link1" href="/ring/">Ring</a>
+      <a class="links link2" href="/partner/">Partner</a>
+      <a class="links link3" href="/location/">Location</a>
+      <a class="links link4" href="/quote/">Quote</a>
+      <a class="links link5" href="/our-stories/">Our Stories</a>
+      <a class="links link6" href="/gift/">Gift</a>
+      <a class="links link7" href="/comments/">Comment</a>  
+
+
+      <a class="next-btn" href="/comments/">
+        <span class="ntext">Next Page</span>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/></svg>
+        </span>
+      </a>
 
       <!-- background -->
       <div class="background-container"></div>
     </main>
+
+    <div class="partner1">
+      <span class="partner-name">Nama1</span>
+      <span class="partner-detail">Detail1</span>
+    </div>
+  
+    <!-- detail mempelai kedua -->
+    <div class="partner2">
+      <span class="partner-name">Nama2</span>
+      <span class="partner-detail">Detail2</span>
+    </div>
     
-    <script src="assets/app.js"></script>
+    <script src="/assets/app.js"></script>
   </body>
 </html>

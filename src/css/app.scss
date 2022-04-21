@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import '~reset-css/reset.css';
+@import 'loading.scss';
 @import 'home.scss';
 @import 'ring.scss';
 @import 'partner.scss';
@@ -29,6 +30,8 @@ html, body {
   font-weight: 300;
   overflow: hidden;
   background-color: var(--background-container);
+
+  // overflow-y: scroll;
 }
 
 .webgl,
@@ -76,20 +79,6 @@ h6 {
 }
 
 .transition {
-  // background-color: #c8cc98;
-  background-color: #f4f4f4;
-  transform: translateY(-100%);
-  z-index: 5;
-
-  > h2 {
-    font-size: 40px;
-    color: #202020;
-  }
-}
-
-.loading-screen {
-  // change style later for loading screen
-
   // background-color: #c8cc98;
   background-color: #f4f4f4;
   transform: translateY(-100%);

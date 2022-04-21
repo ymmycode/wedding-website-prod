@@ -79,6 +79,61 @@
     }
 }
 
+.notification-link
+{
+    cursor: pointer;
+    font-size: 7vmin;
+    color: gold;
+    position: fixed;
+    border-radius: 50%;
+    background-color: #867b52;
+    width: 7vmin;
+    height: 7vmin;
+    filter: drop-shadow(0 0 15px #000);
+    z-index: 2;
+    right: 5vmin;
+    bottom: 7.2vmin;
+    opacity: 0;
+
+    svg
+    {
+        // center
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4.5vmin;
+    }
+}
+
+.notification-link.animate
+{
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    20%, 53%, 80%, 0%, 100% 
+    {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0);
+    }
+    40%, 43% 
+    {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -30px, 0);
+    }
+    70% 
+    {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -15px, 0);
+    }
+    90% 
+    {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+
 @media screen and (max-width: 480px)
 {
     .date-counter
@@ -110,15 +165,25 @@
             margin-top: 30px;
             margin-bottom: 30px;
         }
+    }
 
-        // div.first-partner
-        // {
-        //     transform: translateX(-15%);
-        // }
+    .notification-link
+    {
+        width: 10vmin;
+        height: 10vmin;
 
-        // div.second-partner
-        // {
-        //     transform: translateX(15%);
-        // }
+        svg
+        {
+            font-size: 6vmin;
+        }
+    }
+}
+
+@media screen and (max-width: 360px) 
+{
+    .notification-link
+    {
+        width: 12vmin;
+        height: 12vmin;
     }
 }

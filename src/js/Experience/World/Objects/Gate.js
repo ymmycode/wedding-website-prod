@@ -31,6 +31,9 @@ export default class Gate
         // raycast
         this.raycast = this.experience.raycast
 
+        // tracked
+        this.tracked = true
+
         // mouse
         this.mouse = this.raycast.mouse
 
@@ -146,7 +149,7 @@ export default class Gate
         this.screenPosition.project(this.camera)
         this.translateX = (this.screenPosition.x + 1 - 0.1) * this.sizes.width * 0.5
         this.translateY = - (this.screenPosition.y - 1 + 0.25) * this.sizes.height * 0.5
-        this.point.element.style.transform = `translateX(${this.translateX}px) translateY(${this.translateY}px)`
+        this.point.element && (this.point.element.style.transform = `translateX(${this.translateX}px) translateY(${this.translateY}px)`)
     }
 
     update()
@@ -155,6 +158,7 @@ export default class Gate
         this.enterButton.animate()
         this.rotateObjectWithSensor()
         this.rotateObject()
-        this.updateEnterButtonCssPosition()
+
+        if(this.tracked) this.updateEnterButtonCssPosition()
     }
 }

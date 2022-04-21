@@ -29,6 +29,9 @@ export default class PartnerPhotos
         // debug
         this.debug = this.experience.debug.gui
 
+        // tracked
+        this.tracked = false
+
         // orientation
         this.orientation = this.experience.deviceOrientation
         this.euler = this.orientation.euler
@@ -49,17 +52,10 @@ export default class PartnerPhotos
         this.setPhotoMaterial()
 
         this.partnersPosition()
+        
 
         // for entering animation
         this.group.position.set(0, -40, 0)
-        // responsive
-
-        // test target cube
-        // this.mesh = new THREE.Mesh(
-        //     new THREE.BoxBufferGeometry(.2, .2, .2),
-        //     new  THREE.MeshBasicMaterial({color: `#ff00ff`})
-        // )
-        // this.mesh.position.y = 0
 
         // this.group.add(this.mesh)
     }
@@ -105,12 +101,12 @@ export default class PartnerPhotos
         this.points = [
             {
                 position: new THREE.Vector3(-2, -41.5, 0),
-                element: document.querySelector(`.partner1`)
+                element: document.querySelector(`.partner1`) 
             },
 
             {
                 position: new THREE.Vector3(2, -41.5, 0),
-                element: document.querySelector(`.partner2`)
+                element: document.querySelector(`.partner2`) 
             }
         ]
         
@@ -121,12 +117,12 @@ export default class PartnerPhotos
         this.points = [
             {
                 position: new THREE.Vector3(-.1, -39.8, 0),
-                element: document.querySelector(`.partner1`)
+                element: document.querySelector(`.partner1`) 
             },
 
             {
                 position: new THREE.Vector3(-.1, -42.1, 0),
-                element: document.querySelector(`.partner2`)
+                element: document.querySelector(`.partner2`) 
             }
         ]
         
@@ -140,7 +136,7 @@ export default class PartnerPhotos
             screenPosition.project(this.camera)
             const translateX = (screenPosition.x + 1 - .1) * this.sizes.width * 0.5
             const translateY = - (screenPosition.y - 1 + .1) * this.sizes.height * 0.5
-            point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`
+            point.element && (point.element.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`)
         })
     }
 
@@ -148,7 +144,7 @@ export default class PartnerPhotos
     {
         this.rotateObject()
         this.rotateObjectWithSensor()
-        this.updatePartnerPosition()
+        if(this.tracked) this.updatePartnerPosition()
     }
 
     debugThis()
@@ -188,5 +184,12 @@ export default class PartnerPhotos
         this.photoFrame2.scene.position.y = 0
         this.photoFrame2.scene.rotation.y = -Math.PI * 0.15
         this.photoFrame2.scene.scale.set(5, 5, 5)
+    }
+
+    disableTracking()
+    {
+        this.tracked = false
+        document.querySelector(`.partner1`).style.opacity = 0
+        document.querySelector(`.partner2`).style.opacity = 0
     }
 }
