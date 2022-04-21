@@ -58,6 +58,11 @@ module.exports = (env, argv) => ({
             from: 'src/images/*',
             to: 'images/[name].[ext]',
           },
+
+          {
+            from: 'src/images/logo-bank/*',
+            to: 'images/logo-bank/[name].[ext]',
+          },
           // {
           //   from: path.resolve(__dirname, './src/ring/index.html'),
           //   to: 'ring/[name].[ext]',
