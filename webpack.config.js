@@ -52,7 +52,7 @@ module.exports = (env, argv) => ({
           },
           {
             from: path.resolve(__dirname, './src/quote/index.html'),
-            to: 'quote-ayat/[name].[ext]',
+            to: 'quote/[name].[ext]',
           },
           {
             from: 'src/images/*',
