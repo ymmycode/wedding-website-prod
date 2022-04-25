@@ -1,6 +1,6 @@
 // easter egg
-// console.log('%cMade with heart by', `color: mediumpurple; font-size: 15px; `)
-// console.log('%c ', 'font-size: 50px; background:url(https://raw.githubusercontent.com/ymmycode/wedding-website-prod/wip-3d-scene/static/easter/easter.gif) no-repeat; padding-right: 500px; padding-bottom: 70px')
+console.log('%cMade with heart by', `color: mediumpurple; font-size: 15px; `)
+console.log('%c ', 'font-size: 50px; background:url(https://raw.githubusercontent.com/ymmycode/wedding-website-prod/wip-3d-scene/static/easter/easter.gif) no-repeat; padding-right: 500px; padding-bottom: 70px')
 
 // import plugin
 import barba from '@barba/core'
@@ -33,25 +33,6 @@ import comment from './Comment/comment'
 // import cliboard
 import copyToClipboard from '../Clip/copyToClipboard'
 
-// refresh automatically to home
-// const refreshToTheHome = () => 
-// {
-//     //url
-//     const homepage = `/`
-
-//     // when user refresh the page, redirect to hompeage
-//     // solution 2
-//     window.onbeforeunload = () => 
-//     {
-//         window.setTimeout(()=> 
-//         {
-//             window.location.href = homepage
-//         }, 0)
-//         window.onbeforeunload = null
-//     }
-// }
-// refreshToTheHome()
-
 // Canvas DOM
 const canvas =  document.querySelector(`canvas.webgl`)
 
@@ -78,6 +59,9 @@ const resetMenuAndTransition = (container) =>
 // disabling loading screen if starting from gate
 let notFromGate = false
 
+// date interval
+let updateDate
+
 // tell barba to use plugins
 barba.use(barbaPrefetch)
 
@@ -101,8 +85,11 @@ barba.init({
                 menu(next.container)
 
                 notFromGate && (next.container.querySelector(`.loading-screen`).style.zIndex = 4)
-                // notFromGate && ()
-                // next.container.querySelector(`.loading-screen`).style.zIndex = 4
+
+                updateDate = setInterval(() => 
+                {
+                    countdown(next.container)
+                }, 1000)
 
                 // ring leave animation
                 // scale down, hide
@@ -117,6 +104,7 @@ barba.init({
 
             beforeLeave: ({current}) =>
             {
+                clearInterval(updateDate)
                 resetMenuAndTransition(current.container)
             }
         },
@@ -214,6 +202,7 @@ barba.init({
                     showMenuButton(next.container)
                     notFromGate = true
                     animationTargets.gate().tracked = false
+                
                 }, 600)
             }), 
 
@@ -283,8 +272,44 @@ barba.init({
 })
 
 
-// disable render
-// remove listener
+/// COUNTDOWN TIMER
+const countdown = (container) => 
+{
+    const year = `2022`
+    const month = `06`
+    const day = `01`
+    const dateString = `${year}-${month}-${day}T00:00:00`
 
+    const deadline = new Date(dateString).getTime()
+    const now = new Date().getTime()
 
-// animation chamber
+    const gap = deadline - now
+    
+    // conversion
+    const secondC = 1000
+    const minuteC = secondC * 60
+    const hourC = minuteC * 60
+    const dayC = hourC * 24
+
+    // calculate and show
+    if(gap > 0) 
+    {
+        calcDate(gap, dayC, hourC, minuteC, container)
+    }
+    else 
+    {
+        clearInterval(updateDate)
+    }
+}
+
+const calcDate = (gap, day, hour, minute, container) => 
+{
+    // calculate time
+    const calcDay = Math.trunc(gap / day)
+    const calcHour = Math.trunc((gap % day) / hour)
+    const calcMin = Math.trunc((gap % hour) / minute)
+
+    container.querySelector(`.days`).innerText = calcDay
+    container.querySelector(`.hours`).innerText = calcHour
+    container.querySelector(`.minutes`).innerText = calcMin
+}
