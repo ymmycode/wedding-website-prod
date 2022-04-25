@@ -71,7 +71,7 @@ export default class Experience
         this.raycast = new Raycast()
 
         // device orientation
-        this.deviceOrientation = new DeviceOrientation()
+        // this.deviceOrientation = new DeviceOrientation()
 
         // how to destroy things
         this.destroyThisScene = this.destroyThisScene
@@ -102,7 +102,7 @@ export default class Experience
             this.perfStats.stats.begin()
 
             // update sensor
-            this.deviceOrientation.updateSensor()
+            // this.deviceOrientation.updateSensor()
 
             // update raycast
             this.raycast.update()

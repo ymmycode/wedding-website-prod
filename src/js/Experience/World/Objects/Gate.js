@@ -38,8 +38,8 @@ export default class Gate
         this.mouse = this.raycast.mouse
 
         // orientation
-        this.orientation = this.experience.deviceOrientation
-        this.euler = this.orientation.euler
+        // this.orientation = this.experience.deviceOrientation
+        // this.euler = this.orientation.euler
         
         // group 
         this.group = new THREE.Group()
@@ -156,7 +156,7 @@ export default class Gate
     {
         // animate enter button
         this.enterButton.animate()
-        this.rotateObjectWithSensor()
+        // this.rotateObjectWithSensor()
         this.rotateObject()
 
         if(this.tracked) this.updateEnterButtonCssPosition()

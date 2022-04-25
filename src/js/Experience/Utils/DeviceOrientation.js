@@ -8,7 +8,7 @@ export default class DeviceOrientation
         this.alpha = this.beta = this.gamma = 1
 
         // absolute orientation
-        this.sensorAbs = new AbsoluteOrientationSensor({frequency: 60, referenceFrame: `device`})
+        // this.sensorAbs = new AbsoluteOrientationSensor({frequency: 60, referenceFrame: `device`})
 
         this.quaternion = new THREE.Quaternion()
         this.euler = new THREE.Euler()
