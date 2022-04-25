@@ -7,11 +7,12 @@ const ringEnterTransition = (camera, rings, container) =>
     const wedDate = container.querySelectorAll(`.wed-date`)
     const ringText = container.querySelector(`.ring-text`)
     const transition = container.querySelector(`.transition`)
-    const notifLink = container.querySelector(`.notification-link`)
+    // const notifLink = container.querySelector(`.notification-link`)
     const nextButton = container.querySelector(`.next-btn`)
     const nextSpan = container.querySelectorAll(`.next-btn span`)
     const loadingScreen = container.querySelector(`.loading-screen`)
     // transition.style.transform = `translateY(-100%);`
+    const corner = container.querySelectorAll(`.corner-decor`)
 
     camera.controls.enabled = true
 
@@ -26,6 +27,9 @@ const ringEnterTransition = (camera, rings, container) =>
     .fromTo(transition, {yPercent: 0}, {yPercent: 100, duration: 1, delay: .2}, 0)
     .to(transition, {yPercent: 200, duration: 1}, 1.5)
     .set(loadingScreen, {zIndex: -99}, 1.5)
+    .set(transition, {zIndex: -99}, 2.5)
+    .set(transition, {zIndex: -99}, 2.5)
+    .to(corner, {opacity: 1, duration: 3}, 2.5)
     .to(ringText, {opacity: 1},1)
     .to(camera.instance.position, {y: -18, x: 0, z: 10}, 1)
     .to(camera.controls.target, {y: -20, x: 0, z: 0}, 1)
@@ -35,9 +39,9 @@ const ringEnterTransition = (camera, rings, container) =>
     .from(wedDate, {yPercent: 100, opacity: 0, duration: 2, stagger: .1}, 2.2)
     .to(nextButton, {opacity: 1, duration: 2}, 3)
     .from(nextSpan, {yPercent: -20, duration: 2, stagger: .1}, 3)
-    .from(notifLink, {xPercent: 200, x: 0, z: 0}, 3)
-    .fromTo(notifLink, {opacity: 0}, {opacity: 1}, 3)
-    .then(() => notifLink.classList.toggle(`animate`))
+    // .from(notifLink, {xPercent: 200, x: 0, z: 0}, 3)
+    // .fromTo(notifLink, {opacity: 0}, {opacity: 1}, 3)
+    // .then(() => notifLink.classList.toggle(`animate`))
 
     return tl
 }
