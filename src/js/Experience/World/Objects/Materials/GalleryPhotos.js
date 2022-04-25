@@ -20,6 +20,7 @@ export default class GalleryPhotos
         this.material = new THREE.MeshBasicMaterial(
         {
             map: this.gallery,
+            side: THREE.DoubleSide
         })
     }
 }

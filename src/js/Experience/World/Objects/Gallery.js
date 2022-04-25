@@ -30,31 +30,40 @@ export default class Gallery
         // scene
         this.group.add(this.galleryScene.scene)
         this.scene.add(this.group)
+        this.galleryModel = this.galleryScene.scene
 
         // setting up
         this.setModel()
         this.setMaterial()
         this.update()
-
-        // for animation enter
-        this.group.position.set(0, -100, 0)
     }
 
     setModel()
     {
-        this.galleryModel = this.galleryScene.scene
-        this.galleryModel.scale.set(10, 10, 10)
+        // for animation enter
+        this.group.position.set(0, -105, 0)
+        this.galleryModel.scale.set(1.7,1.7,1.7)
+    }
+
+    setModelMobile()
+    {
+        // mobile position
+        this.group.position.set(0, -102, 0)
+
+        //mobile scale
+        this.galleryModel.scale.set(0.5, 0.5, 0.5)
     }
 
     setMaterial()
     {
-        this.galleryGeometry = this.galleryModel.children.find(child => child.name === `Gallery_1`)
+        // this.galleryGeometry = this.galleryModel.children.find(child => child.name === `Gallery_1`)
+        this.galleryGeometry = this.galleryModel.children.find(child => child.name === `SpiralGallery`)
         this.galleryGeometry.material = this.galleryPhotos.material
     }
 
     update()
     {
         // rotate
-        this.galleryModel.rotation.y += this.time.delta * 0.0001 / 2
+        this.galleryModel.rotation.y -= this.time.delta * 0.001 / 5
     }
 }

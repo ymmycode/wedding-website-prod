@@ -8,6 +8,7 @@ const locationEnterTransition = (camera, mapScene, container) =>
     const nextButton = container.querySelector(`.next-btn`)
     const nextSpan = container.querySelectorAll(`.next-btn span`)
     const loadingScreen = container.querySelector(`.loading-screen`)
+    const corner = container.querySelectorAll(`.corner-decor`)
 
     const tl = gsap.timeline({
         defaults: {
@@ -20,6 +21,8 @@ const locationEnterTransition = (camera, mapScene, container) =>
     .fromTo(transition, {yPercent: 0}, {yPercent: 100, duration: 1, delay: .2}, 0)
     .to(transition, {yPercent: 200, duration: 1}, 1.5)
     .set(loadingScreen, {zIndex: -99}, 1.5)
+    .set(transition, {zIndex: -99}, 2.5)
+    .to(corner, {opacity: 1, duration: 3}, 2.5)
     .from(title, {yPercent: 100, stagger: .1}, 2)
     .fromTo(title, {opacity: 0}, {opacity: 0.8, stagger: .1}, 2)
     .fromTo(camera.instance.position, {y: -45, x: 0, z: 10}, {y: -55, x: 0, z: 10, duration: 3}, 1.2)

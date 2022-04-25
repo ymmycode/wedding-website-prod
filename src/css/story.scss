@@ -1,0 +1,229 @@
+.story-content
+{
+    position: fixed;
+    z-index: 3;
+
+    width: 100%;
+    height: 100%;
+
+    // backdrop-filter: blur(3px);
+    // -webkit-backdrop-filter: blur(3px);
+
+    overflow: none;
+    overflow-y: scroll;
+
+    -ms-scroll-snap-type: y mandatory;
+    scroll-snap-type: y mandatory;
+
+    .story-container
+    {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: center;
+
+        .story-timeline
+        {
+            width: 100%;
+
+            .story
+            {
+
+                scroll-snap-align: center;
+
+                height: 100vh;
+
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+
+                font-size: 2vh;
+                // max-width: 800px;
+                width: 100%;
+
+                // border: 1px solid;
+
+                font-family: 'Montserrat', sans-serif;
+                text-align: center;
+
+                .story-header
+                {
+                    font-size: 15vmin;
+                    text-align: center;
+                    font-family: 'Great Vibes', cursive;
+                }
+
+                .emoji
+                {
+                    font-size: 4vh;
+                }
+
+                .header
+                {
+                    opacity: 0;
+                }
+
+                .story-el
+                {
+                    margin-top: 8px;
+                    margin-bottom: 8px;
+                    max-width: 800px;
+                }
+
+                .title-story
+                {
+                    font-family: 'Great Vibes', cursive;
+                    font-size: 7vh;
+                }
+
+                .date-story
+                {
+                    font-weight: 600;
+                    font-size: 2vh;
+                }
+
+                .image-story
+                {
+                    max-width: 330px;
+                }
+
+                .desc-story
+                {
+                    font-weight: 400;
+                }
+            }
+
+            .story1, .story2, .story3, .story4, .story5
+            {
+                background-color: white;
+            }
+
+            .story5
+            {
+                span
+                {
+                    font-size: 15vh;
+                }
+            }
+        }
+    }
+    
+}
+
+.story-content::-webkit-scrollbar-track
+{
+    -webkit-box-shadow : inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.story-content::-webkit-scrollbar
+{
+    width: 6px;
+}
+
+.story-content::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #525252;
+}
+
+@media screen and (max-width: 480px) 
+{
+    .story-content
+    {
+
+        overflow: none;
+        overflow-y: scroll;
+
+        .story-container
+        {
+            .story-timeline
+            {
+                .story
+                {
+
+                    .emoji
+                    {
+                        font-size: 3vh;
+                    }
+
+                    .story-el
+                    {
+                        max-width: 330px;
+                    }
+
+                    .title-story
+                    {
+                        font-size: 5vh;
+                    }
+
+                    .date-story
+                    {
+                        font-size: 13 px;
+                    }
+
+                    // .image-story
+                    // {
+
+                    // }
+
+                    .desc-story
+                    {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+@media screen and (max-width: 360px) 
+{
+    .story-content
+    {
+
+        overflow: none;
+        overflow-y: scroll;
+
+        .story-container
+        {
+            .story-timeline
+            {
+                .story
+                {
+                    .story-el
+                    {
+                        margin-bottom: 2px;
+                        margin-top: 2px;
+                    }
+
+                    .title-story
+                    {
+                        font-size: 5vh;
+                    }
+
+                    .date-story
+                    {
+                        font-size: 13 px;
+                    }
+
+                    .image-story
+                    {
+                        max-width: 250px;
+                    }
+
+                    .desc-story
+                    {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        
+    }
+}

@@ -1,3 +1,7 @@
+
+// temp. disable filter drop-shadow for performance
+// curr. using box-shadow instead filter drop-shadow
+
 .menu-btn, .links, .next-btn
 {
     position: fixed;
@@ -11,8 +15,9 @@
     width: 7vmin;
     height: 7vmin;
     // transform: translateY(85vmin) translateX(5vmin);
-    filter: drop-shadow(0 0 15px #000);
-    z-index: 3;
+    // filter: drop-shadow(0 0 15px #000);
+    box-shadow: 0px 0px 15px black;
+    z-index: 4;
     // overflow: hidden;
     opacity: 0;
 
@@ -25,7 +30,8 @@
     align-content: center;
     align-items: center;
 
-    transition-property: background-color, filter;
+    // transition-property: background-color, filter;
+    transition-property: background-color, box-shadow;
     transition-duration: 0.5s;
 
     span
@@ -52,7 +58,8 @@
 .menu-btn.active
 {
     background-color: #867b52;
-    filter: drop-shadow(0 0 6px #000);
+    // filter: drop-shadow(0 0 6px #000);
+    box-shadow: 0px 0px 6px black;
 
     span
     {
@@ -89,7 +96,8 @@
     background-color: #867b52;
     color: #E7CD8B;
     width: 20vmin;
-    filter: drop-shadow(0 0 6px #000);
+    // filter: drop-shadow(0 0 6px #000);
+    box-shadow: 0px 0px 6px black;
     z-index: -2;
 }
 
@@ -153,7 +161,7 @@
 {
     transform: translateX(5vmin);
     opacity: 1;
-    z-index: 3;
+    z-index: 4;
 }
 
 .next-btn
@@ -212,13 +220,15 @@
 
     .menu-btn.active
     {
-        filter: drop-shadow(0 0 3px #000);
+        // filter: drop-shadow(0 0 3px #000);
+        box-shadow: 0px 0px 3px black;
     }
 
     .links
     {
         font-size: 2.8vmin;
-        filter: drop-shadow(0 0 3px #000);
+        // filter: drop-shadow(0 0 3px #000);
+        box-shadow: 0px 0px 3px black;
     }
 
     .next-btn
