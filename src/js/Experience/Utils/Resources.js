@@ -92,8 +92,11 @@ export default class Resources extends EventEmitter
 
         this.loaded++
 
-        if(this.loaded === this.toLoad)
+        const progress = Math.trunc((this.loaded / this.toLoad) * 100)
+
+        if(this.loaded === this.toLoad && progress === 100)
         {
+            // document.querySelector(`.preload`).style.zIndex = -99
             this.trigger(`ready`)
         }
     }
