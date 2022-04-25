@@ -95,6 +95,7 @@ export default class World
         if(this.rings) this.rings.ringsMobile()
         if(this.partnerPhotos) this.partnerPhotos.setMobile()
         if(this.map) this.map.setMobile()
+        if(this.gallery) this.gallery.setModelMobile()
     }
 
     setDesktop()
@@ -103,6 +104,7 @@ export default class World
         if(this.rings) this.rings.ringsDesktop()
         if(this.partnerPhotos) this.partnerPhotos.setDesktop()
         if(this.map) this.map.setDesktop()
+        if(this.gallery) this.gallery.setModel()
     }
 
     debugWorld()
