@@ -33,8 +33,8 @@ export default class PartnerPhotos
         this.tracked = false
 
         // orientation
-        this.orientation = this.experience.deviceOrientation
-        this.euler = this.orientation.euler
+        // this.orientation = this.experience.deviceOrientation
+        // this.euler = this.orientation.euler
 
         // group
         this.group = new THREE.Group()
@@ -143,7 +143,7 @@ export default class PartnerPhotos
     update()
     {
         this.rotateObject()
-        this.rotateObjectWithSensor()
+        // this.rotateObjectWithSensor()
         if(this.tracked) this.updatePartnerPosition()
     }
 
