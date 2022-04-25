@@ -28,11 +28,6 @@ export default class Camera
         this.setOrbitControls()
 
         this.cameraDebug()
-
-        // will implement camera transition to the next scene
-
-        // this.instance.position.set(0,-70, 10)
-        // this.controls.target.set(0, -70, 0)
     }
 
     setInstance()
