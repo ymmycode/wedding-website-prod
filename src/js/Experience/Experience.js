@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { Sizes, Time, Resources, Debug, Raycast, DeviceOrientation, PerfStats } from './Utils'
+import { Sizes, Time, Resources, Debug, Raycast, PerfStats } from './Utils'
 import Camera from './Camera'
 import Renderer from './Renderer'
 import { World } from './World'
@@ -70,14 +70,9 @@ export default class Experience
         // raycast
         this.raycast = new Raycast()
 
-        // device orientation
-        // this.deviceOrientation = new DeviceOrientation()
-
         // how to destroy things
         this.destroyThisScene = this.destroyThisScene
 
-        // orientation sensor permission??
-        // document.querySelector(`.menu-btn`).addEventListener(`click`, this.deviceOrientation.permissionToActivate)
     }
 
     resize()
@@ -101,11 +96,8 @@ export default class Experience
             // monitor performance
             this.perfStats.stats.begin()
 
-            // update sensor
-            // this.deviceOrientation.updateSensor()
-
             // update raycast
-            this.raycast.update()
+            // this.raycast.update()
 
             // update camera
             this.camera.update()
