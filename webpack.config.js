@@ -55,6 +55,14 @@ module.exports = (env, argv) => ({
             to: 'quote/[name].[ext]',
           },
           {
+            from: path.resolve(__dirname, './src/endcard/index.html'),
+            to: 'endcard/[name].[ext]',
+          },
+          {
+            from: path.resolve(__dirname, './src/schedule/index.html'),
+            to: 'schedule/[name].[ext]',
+          },
+          {
             from: 'src/images/*',
             to: 'images/[name].[ext]',
           },
