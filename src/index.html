@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" translate="no">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,9 +9,9 @@
   </head>
   <body data-barba="wrapper">
 
-    <!-- <div class="preload">
-      <h1 class="count-load">000</h1>
-    </div> -->
+    <div class="preload">
+      <h1 class="count-load">0%</h1>
+    </div>
 
     <!-- canvas for webgl -->
     <canvas class="webgl"></canvas>
@@ -19,9 +19,16 @@
     <!-- Music player -->
 
     <main data-barba="container" data-barba-namespace="home">
-      <div>
-        <a class="enter-btn" href="/ring/"><span>a</span></a>
+      <div onclick="return test();">
+        <a class="enter-btn" href="/ring/">Buka</a>
       </div>
+
+      <script>
+        const test = () => 
+        {
+          window.experience.World.sounds.togglePlay()
+        }
+      </script>
     </main>
 
     <!-- background -->
@@ -30,120 +37,7 @@
       <h2>Invitation Cover</h2>
     </div>
 
-    <div class="background-container">
-      <div class="content">
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-        </div>
-        
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-        </div>
-
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-        </div>
-        
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-        </div>
-
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-        </div>
-        
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-        </div>
-
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-        </div>
-        
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-        </div>
-
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-          <div>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-            <span class="transp-text"> Selamat</span><span class="outline-text"> Selamat</span>
-          </div>
-        </div>
-        
-        <div class="scroll">
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-          <div>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-            <span class="transp-text"> Datang</span><span class="outline-text"> Datang</span>
-          </div>
-        </div> 
-
-      </div>
-    </div>
+    <div class="background-container"></div>
 
     <!-- detail mempelai pertama -->
     <div class="partner1">
@@ -151,6 +45,11 @@
       <span class="partner-detail">Detail1</span>
     </div>
   
+    <div class="play-btn">
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M12.225 4.462C9.89 3.142 7 4.827 7 7.508V24.5c0 2.682 2.892 4.367 5.226 3.045l14.997-8.498c2.367-1.341 2.366-4.751 0-6.091L12.224 4.462Z"/></svg>
+      <svg class="icon switch" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M7.25 3A3.25 3.25 0 0 0 4 6.25v18.5A3.25 3.25 0 0 0 7.25 28h3.5A3.25 3.25 0 0 0 14 24.75V6.25A3.25 3.25 0 0 0 10.75 3h-3.5Zm14 0A3.25 3.25 0 0 0 18 6.25v18.5A3.25 3.25 0 0 0 21.25 28h3.5A3.25 3.25 0 0 0 28 24.75V6.25A3.25 3.25 0 0 0 24.75 3h-3.5Z"/></svg>
+    </div>
+
     <!-- detail mempelai kedua -->
     <div class="partner2">
       <span class="partner-name">Nama2</span>

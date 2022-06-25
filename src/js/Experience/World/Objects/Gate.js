@@ -5,9 +5,10 @@ import {
     Wood, 
     ShadowFloor, 
     FlowerDecor, 
-    PhotoPlaceholder 
+    PhotoPlaceholder,
+    WelcomeBoard
 } from './Materials'
-import Enter from './Button/Enter'
+// import Enter from './Button/Enter'
 
 export default class Gate 
 {
@@ -31,16 +32,15 @@ export default class Gate
         // raycast
         this.raycast = this.experience.raycast
 
+        // time
+        this.time = this.experience.time
+
         // tracked
         this.tracked = true
 
         // mouse
         this.mouse = this.raycast.mouse
 
-        // orientation
-        // this.orientation = this.experience.deviceOrientation
-        // this.euler = this.orientation.euler
-        
         // group 
         this.group = new THREE.Group()
         this.group2 = new THREE.Group()
@@ -52,10 +52,10 @@ export default class Gate
         this.gateScene = this.resources.items.gateScene.scene
 
         // button (enter)
-        this.enterButton = new Enter()
+        // this.enterButton = new Enter()
         
         // enter button sprite
-        this.group.add(this.enterButton.group)
+        // this.group.add(this.enterButton.group)
 
         // setting up
         this.setMaterials()
@@ -67,8 +67,8 @@ export default class Gate
         this.group2.add(this.group)
         this.scene.add(this.group2)
 
-        this.enterButtonCss()
-        this.updateEnterButtonCssPosition()
+        // this.enterButtonCss()
+        // this.updateEnterButtonCssPosition()
 
     }
 
@@ -81,6 +81,7 @@ export default class Gate
         this.photoPlaceholder = this.gateScene.children.find(child => child.name === `PhotoPlaceholder001`)
         this.curtain = this.gateScene.children.find(child => child.name === `Curtain001`)
         this.photoStand = this.gateScene.children.find(child => child.name ===`PhotoStand002`)
+        this.welcomeBoardGate = this.gateScene.children.find(child => child.name ===`WelcomeBoard`)
         
         this.floor.material = this.shadowFloor.material
         this.gate.material = this.wood.material
@@ -89,6 +90,7 @@ export default class Gate
         this.curtain.material = this.palette1.material
         this.photoStand.material = this.wood.material
         this.photoPlaceholder.material = this.photo.material
+        this.welcomeBoardGate.material =this.welBoardMat.material
 
     }
     
@@ -99,6 +101,7 @@ export default class Gate
         this.wood = new Wood()
         this.shadowFloor = new ShadowFloor()
         this.flowerDecorMat = new FlowerDecor()
+        this.welBoardMat = new WelcomeBoard()
     }
 
     gateSetup()
@@ -108,7 +111,7 @@ export default class Gate
         this.gateScene.position.y = -1
         this.gateScene.position.x = .5
 
-        this.enterButton.spriteSetupMobile()
+        // this.enterButton.spriteSetupMobile()
     }
 
     gateSetup2()
@@ -117,7 +120,7 @@ export default class Gate
         this.gateScene.position.y = -1.5
         this.gateScene.position.x = .5
 
-        this.enterButton.spriteSetup()
+        // this.enterButton.spriteSetup()
     }
 
     rotateObject()
@@ -126,39 +129,33 @@ export default class Gate
 
         this.group.rotation.y = THREE.MathUtils.lerp(this.group.rotation.y, (this.mouse.x * Math.PI) / 20, 0.1)
         this.group.rotation.x = THREE.MathUtils.lerp(this.group.rotation.x, (-this.mouse.y * Math.PI) / 20, 0.1)
+    
+        this.group2.rotation.y = Math.cos(Math.sin(this.time.elapsed * 0.00028)) - 0.9
     }
 
-    rotateObjectWithSensor()
-    {
-        // console.log(this.quaternion.x, this.quaternion.y)
-        this.group2.rotation.y = THREE.MathUtils.lerp(this.group.rotation.y, ((this.euler.y) * Math.PI) / 2, 0.5)
-        // this.group2.rotation.x = THREE.MathUtils.lerp(this.group.rotation.x, ((-this.euler.x) * Math.PI) * .115, 0.5)
-    }
+    // enterButtonCss()
+    // {
+    //     this.point = {
+    //         position: this.enterButton.enterLastSprite.position,
+    //         element: document.querySelector(`.enter-btn`)
+    //     }
+    // }
 
-    enterButtonCss()
-    {
-        this.point = {
-            position: this.enterButton.enterLastSprite.position,
-            element: document.querySelector(`.enter-btn`)
-        }
-    }
-
-    updateEnterButtonCssPosition()
-    {
-        this.screenPosition = this.point.position.clone()
-        this.screenPosition.project(this.camera)
-        this.translateX = (this.screenPosition.x + 1 - 0.1) * this.sizes.width * 0.5
-        this.translateY = - (this.screenPosition.y - 1 + 0.25) * this.sizes.height * 0.5
-        this.point.element && (this.point.element.style.transform = `translateX(${this.translateX}px) translateY(${this.translateY}px)`)
-    }
+    // updateEnterButtonCssPosition()
+    // {
+    //     this.screenPosition = this.point.position.clone()
+    //     this.screenPosition.project(this.camera)
+    //     this.translateX = (this.screenPosition.x + 1 - 0.1) * this.sizes.width * 0.5
+    //     this.translateY = - (this.screenPosition.y - 1 + 0.25) * this.sizes.height * 0.5
+    //     this.point.element && (this.point.element.style.transform = `translateX(${this.translateX}px) translateY(${this.translateY}px)`)
+    // }
 
     update()
     {
         // animate enter button
-        this.enterButton.animate()
-        // this.rotateObjectWithSensor()
+        // this.enterButton.animate()
         this.rotateObject()
 
-        if(this.tracked) this.updateEnterButtonCssPosition()
+        // if(this.tracked) this.updateEnterButtonCssPosition()
     }
 }
