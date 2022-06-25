@@ -18,13 +18,14 @@
     // margin: 1em 0 4em 1em;
     padding: 3%;
     border: solid 1px gray;
-    border-radius: 3px;
+    border-radius: 20px;
     box-shadow: 2px 2px 2px silver;
+    background-color: rgba(245, 245, 245, 0.286);
 
     .comment-title
     {
         font-weight: 900;
-        font-size: 4vmin;
+        font-size: 3vmin;
     }
 
     .scroll
@@ -34,6 +35,7 @@
         overflow-y: scroll;
         touch-action: auto;
         max-height: 35vmin;
+        // z-index: 3;
         // height: 100%;
 
         #pastcomments
@@ -64,7 +66,7 @@
                     {
                         
                         font-weight: 600;
-                        color: #867b52;
+                        color: var(--accent-color1);
                     }
 
                     .comment-attend
@@ -99,7 +101,8 @@
 #newcomment
 {
     border-bottom: solid 3px gray;
-    padding-bottom: 2em;
+    padding-bottom: 10px;
+    font-size: .8em;
 
     textarea, input[type="text"]
     {
@@ -109,21 +112,21 @@
     textarea
     {
         width: 100%;
-        height: 72px;
+        height: 45px;
     }
 
     label
     {
         display: inline-block;
-        margin: 1em 0 0.5em 0;
-        font-weight: 600;
+        margin: 10px 0 2px 0;
+        font-weight: 400;
     }
 
     input[type="submit"]
     {
         padding: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
         font-weight: 900;
         background-color: bisque;
         cursor: pointer;
@@ -166,7 +169,7 @@
     {
         .comment-title
         {
-            font-size: 6vmin;
+            font-size: 4vmin;
         }
 
         .scroll
@@ -191,10 +194,10 @@
 {
     #allcomments
     {
-        .comment-title
-        {
-            font-size: 6vmin;
-        }
+        // .comment-title
+        // {
+        //     font-size: 6vmin;
+        // }
     
         .scroll
         {

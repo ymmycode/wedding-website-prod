@@ -1,10 +1,10 @@
 .title-location
 {
     // center position
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-35vmin);
+    transform: translateX(-50%) translateY(-30vh);
 
     display: flex;
     flex-direction: row;
@@ -16,7 +16,7 @@
     {
         font-family: 'Great Vibes', cursive;
         // font-weight: 600;
-        font-size: 15vmin;
+        font-size: 11vh;
         opacity: 0;
     }
 }
@@ -33,8 +33,8 @@
     // filter: drop-shadow(0 0 15px #000);
     box-shadow: 0px 0px 15px black;
     z-index: 4;
-    right: 5vmin;
-    bottom: 7.2vmin;
+    right: 10px;
+    bottom: 20px;
     opacity: 0;
 
     svg
@@ -45,6 +45,72 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+}
+
+.loc-detail
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-60%) scale(0);
+
+    z-index: 3;
+
+    background-color: rgba(245, 245, 245, 0.85);
+
+    min-width: 280px;
+    min-height: 200px;
+    
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px silver;
+
+    font-family: 'Montserrat', sans-serif;
+
+    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+
+    .close
+    {
+        position: fixed;
+        right: 20px;
+        top: 10px;
+    }
+
+    .title-loc, .address, .map-link, .close
+    {
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .title-loc
+    {
+        font-weight: 900;
+    }
+
+    .map-link
+    {
+        text-decoration: none;
+        background-color: var(--accent-color1);
+        color: var(--accent-color2);
+        padding: 12px;
+        border-radius: 10px;
+    }
+}
+
+.loc-detail.active
+{
+    transform: translateX(-50%) translateY(-60%) scale(1);
 }
 
 .geo-link.animate
@@ -91,6 +157,8 @@
         font-size: 9vmin;
         width: 10vmin;
         height: 10vmin;
+
+        bottom: 80px;
     }
 }
 

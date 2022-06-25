@@ -114,22 +114,22 @@
     
 }
 
-.story-content::-webkit-scrollbar-track
-{
-    -webkit-box-shadow : inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-}
+// .story-content::-webkit-scrollbar-track
+// {
+//     -webkit-box-shadow : inset 0 0 6px rgba(0, 0, 0, 0.3);
+//     border-radius: 10px;
+// }
 
-.story-content::-webkit-scrollbar
-{
-    width: 6px;
-}
+// .story-content::-webkit-scrollbar
+// {
+//     width: 6px;
+// }
 
-.story-content::-webkit-scrollbar-thumb
-{
-    border-radius: 10px;
-    background-color: #525252;
-}
+// .story-content::-webkit-scrollbar-thumb
+// {
+//     border-radius: 10px;
+//     background-color: #525252;
+// }
 
 @media screen and (max-width: 480px) 
 {

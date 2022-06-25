@@ -16,6 +16,8 @@
     width: 100%;
     font-size: 3vmin;
 
+    z-index: 3;
+
     .title-quote
     {
         display: flex;
@@ -31,7 +33,7 @@
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
             font-size: 15vmin;
-            opacity: 1;
+            opacity: 0;
         }
     }
 
@@ -39,12 +41,23 @@
     {
         max-width: 900px;
         line-height: 3vmin;
+        opacity: 0;
     }
 
     .source
     {
+        opacity: 0;
         padding-top: 30px;
         font-weight: 900;
+
+        a
+        {
+            text-decoration: none;
+            background-color: var(--accent-color1);
+            color: var(--accent-color2);
+            padding: 15px;
+            border-radius: 12px;
+        }
     }
 }
 
