@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import Experience from "../Experience";
 import Environment from './Environment';
-import { Rings, Map, Gate, PartnerPhotos, Gallery } from './Objects'
+import { Rings, Map, Gate, PartnerPhotos, Gallery, Sounds } from './Objects'
 
 export default class World 
 {
@@ -35,6 +35,9 @@ export default class World
         this.resources.on(`ready`, () => 
         {
             console.log(`All Loaded, And Ready`)
+
+            // Sounds
+            this.sounds = new Sounds()
 
             // Gate
             this.gate = new Gate()
