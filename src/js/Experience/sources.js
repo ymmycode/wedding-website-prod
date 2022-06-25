@@ -195,27 +195,6 @@ export default
         type: 'texture',
         path: '../textures/gallery/gallery.jpg'
     },
-    
-    {
-        // enter button
-        name: 'enterButton',
-        type: 'texture',
-        path: '../textures/enter/enter-button.jpg'
-    },
-
-    {
-        // enter button 
-        name: 'enterButtonFirst',
-        type: 'texture',
-        path: '../textures/enter/enter-button-first.jpg'
-    },
-
-    {
-        // enter button 
-        name: 'enterButtonLast',
-        type: 'texture',
-        path: '../textures/enter/enter-button-last.jpg'
-    },
 
     {
         // matcap gold
@@ -223,12 +202,18 @@ export default
         type: 'texture',
         path: '../textures/matcap/matcap-gold-2_darker.png'
     },
-    
-    // {
-    //     // 
-    //     name: '',
-    //     type: '',
-    //     path: ''
-    // },
-    
+
+    {
+        // welcome board texture
+        name: 'welcomeBoard',
+        type: 'texture',
+        path: '../textures/welcome-board/welcome.jpg'
+    },
+
+    {
+        // welcome board texture
+        name: 'bg',
+        type: 'audio',
+        path: '../music/bg.mp3'
+    },
 ]
