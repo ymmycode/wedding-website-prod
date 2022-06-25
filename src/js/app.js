@@ -67,14 +67,17 @@ barba.use(barbaPrefetch)
 
 // barba initialization
 barba.init({
+    timeout: 120000,
+
     views: [
         {
             namespace: 'home',
             beforeLeave: ({current}) => 
             {
-                animationTargets.gate().tracked = false
+                // animationTargets.gate().tracked = false
                 gateTransition(animationTargets.camera)
 
+                notFromGate = false
             }
         },
 
@@ -82,9 +85,11 @@ barba.init({
             namespace: 'ring',
             afterEnter: (({next}) => 
             {
+                if(!notFromGate) next.container.querySelector(`#navigation-menu`).style.opacity = 0
+
                 menu(next.container)
 
-                notFromGate && (next.container.querySelector(`.loading-screen`).style.zIndex = 4)
+                // notFromGate && (next.container.querySelector(`.loading-screen`).style.zIndex = 4)
 
                 updateDate = setInterval(() => 
                 {
@@ -93,13 +98,15 @@ barba.init({
 
                 // ring leave animation
                 // scale down, hide
-                const enterTransition = setTimeout(() =>
-                {
-                    ringEnterTransition(animationTargets.camera, animationTargets.rings(), next.container)
-                    showMenuButton(next.container)
+                // const enterTransition = setTimeout(() =>
+                // {
+                    ringEnterTransition(animationTargets.camera, animationTargets.rings(), next.container, notFromGate)
+                    
+                    if(!notFromGate) showMenuButton(next.container)
+                    
                     notFromGate = true
-                    animationTargets.gate().tracked = false
-                }, 600)
+                    // animationTargets.gate().tracked = false
+                // }, 600)
             }), 
 
             beforeLeave: ({current}) =>
@@ -114,20 +121,21 @@ barba.init({
             afterEnter: (({next}) => 
             {
                 menu(next.container)
-                next.container.querySelector(`.loading-screen`).style.zIndex = 4
+                // next.container.querySelector(`.loading-screen`).style.zIndex = 4
 
                 experience.World.container = next.container
 
                 // ring leave animation
                 // scale down, hide
-                const enterTransition = setTimeout(() =>
-                {                    
+                // const enterTransition = setTimeout(() =>
+                // {   
                     partnerEnterTransition(animationTargets.camera, animationTargets.partner(), next.container)
-                    animationTargets.partner().tracked = true
-                    showMenuButton(next.container)
+                    // animationTargets.partner().tracked = true
+                    if(!notFromGate) showMenuButton(next.container)
                     notFromGate = true
-                    animationTargets.gate().tracked = false
-                }, 600)
+                    // animationTargets.gate().tracked = false
+                    // animationTargets.partner().updatePartnerPosition()
+                // }, 100)
             }), 
 
             beforeLeave: ({current}) =>
@@ -142,17 +150,27 @@ barba.init({
             afterEnter: (({next}) => 
             {
                 menu(next.container)
-                next.container.querySelector(`.loading-screen`).style.zIndex = 4
+                // next.container.querySelector(`.loading-screen`).style.zIndex = 4
                 
+                next.container.querySelector(`.close`).onclick = () => 
+                {
+                    next.container.querySelector(`.loc-detail`).classList.toggle(`active`)
+                }
+
+                next.container.querySelector(`.geo-link`).onclick = () => 
+                {
+                    next.container.querySelector(`.loc-detail`).classList.toggle(`active`)
+                }
+
                 // ring leave animation
                 // scale down, hide
-                const enterTransition = setTimeout(() =>
-                {
+                // const enterTransition = setTimeout(() =>
+                // {
                     locationEnterTransition(animationTargets.camera, animationTargets.map(), next.container)
-                    showMenuButton(next.container)
+                    if(!notFromGate) showMenuButton(next.container)
                     notFromGate = true
-                    animationTargets.gate().tracked = false
-                }, 600)
+                    // animationTargets.gate().tracked = false
+                // }, 600)
             }), 
 
             beforeLeave: ({current}) =>
@@ -168,17 +186,17 @@ barba.init({
             afterEnter: (({next}) => 
             {
                 menu(next.container)
-                next.container.querySelector(`.loading-screen`).style.zIndex = 4
+                // next.container.querySelector(`.loading-screen`).style.zIndex = 4
                 
                 // ring leave animation
                 // scale down, hide
-                const enterTransition = setTimeout(() =>
-                {
+                // const enterTransition = setTimeout(() =>
+                // {
                     quoteEnterTransition(animationTargets.camera, next.container)
-                    showMenuButton(next.container)
+                    if(!notFromGate) showMenuButton(next.container)
                     notFromGate = true
-                    animationTargets.gate().tracked = false
-                }, 600)
+                    // animationTargets.gate().tracked = false
+                // }, 600)
             }), 
 
             beforeLeave: ({current}) =>
@@ -192,18 +210,18 @@ barba.init({
             afterEnter: (({next}) => 
             {
                 menu(next.container)
-                next.container.querySelector(`.loading-screen`).style.zIndex = 4
+                // next.container.querySelector(`.loading-screen`).style.zIndex = 4
                 
                 // ring leave animation
                 // scale down, hide
-                const enterTransition = setTimeout(() =>
-                {
+                // const enterTransition = setTimeout(() =>
+                // {
                     galleryEnterTransition(animationTargets.camera, animationTargets.gallery(), next.container)
-                    showMenuButton(next.container)
+                    if(!notFromGate) showMenuButton(next.container)
                     notFromGate = true
-                    animationTargets.gate().tracked = false
+                    // animationTargets.gate().tracked = false
                 
-                }, 600)
+                // }, 600)
             }), 
 
             beforeLeave: ({current}) =>
@@ -219,17 +237,17 @@ barba.init({
             {
                 menu(next.container)
                 copyToClipboard(next.container)
-                next.container.querySelector(`.loading-screen`).style.zIndex = 4
+                // next.container.querySelector(`.loading-screen`).style.zIndex = 4
                 
                 // ring leave animation
                 // scale down, hide
-                const enterTransition = setTimeout(() =>
-                {
+                // const enterTransition = setTimeout(() =>
+                // {
                     giftEnterTransition(animationTargets.camera, next.container)
-                    showMenuButton(next.container)
+                    if(!notFromGate) showMenuButton(next.container)
                     notFromGate = true
-                    animationTargets.gate().tracked = false
-                }, 600)
+                    // animationTargets.gate().tracked = false
+                // }, 600)
             }), 
 
             beforeLeave: ({current}) =>
@@ -244,18 +262,18 @@ barba.init({
             {
                 menu(next.container)
                 next.container.querySelector(`#comments-container`).style.zIndex = 2
-                next.container.querySelector(`.loading-screen`).style.zIndex = 4
+                // next.container.querySelector(`.loading-screen`).style.zIndex = 4
                 
                 // ring leave animation
                 // scale down, hide
-                const enterTransition = setTimeout(() =>
-                {
+                // const enterTransition = setTimeout(() =>
+                // {
                     comment(next.container)
                     commentEnterTransition(animationTargets.camera, next.container)
-                    showMenuButton(next.container)
+                    if(!notFromGate) showMenuButton(next.container)
                     notFromGate = true
-                    animationTargets.gate().tracked = false
-                }, 600)
+                    // animationTargets.gate().tracked = false
+                // }, 600)
             }), 
 
             beforeLeave: ({current}) =>
@@ -276,8 +294,8 @@ barba.init({
 const countdown = (container) => 
 {
     const year = `2022`
-    const month = `06`
-    const day = `01`
+    const month = `07`
+    const day = `16`
     const dateString = `${year}-${month}-${day}T00:00:00`
 
     const deadline = new Date(dateString).getTime()
