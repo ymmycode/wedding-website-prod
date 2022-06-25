@@ -9,6 +9,8 @@
     justify-content: center;
     align-items: center;
 
+    opacity: 0;
+
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
@@ -22,7 +24,7 @@
         {
             font-family: 'Great Vibes', cursive;
             font-weight: 400;
-            font-size: 13vmin;
+            font-size: 10vh;
             opacity: 1;
         }
     }
@@ -177,7 +179,7 @@
         justify-content: flex-start;
         
         height: 100%;
-        overflow: hidden;
+        // overflow: hidden;
         overflow-y: scroll;
 
         .title-gift

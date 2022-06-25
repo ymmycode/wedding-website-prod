@@ -1,0 +1,80 @@
+.quote-content
+{
+    .card
+    {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+
+        width: 600px;
+        min-height: 200px;
+        background-color: rgba(255, 255, 255, 0.671);
+        margin-bottom: 20px;
+        border-radius: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 2.5px;
+        padding-bottom: 2.5px;
+
+        span
+        {
+            font-size: 2vh;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        span:nth-child(1)
+        {
+            font-family: 'Great Vibes', cursive;
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        span:nth-child(2)
+        {
+            font-weight: 400;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) 
+    {
+        .quote-content
+        {
+            .card
+            {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+
+                width: 250px;
+                min-height: 150px;
+                background-color: rgba(255, 255, 255, 0.444);
+                margin-bottom: 30px;
+                border-radius: 15px;
+                // padding-left: 20px;
+                // padding-right: 20px;
+
+                span
+                {
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                }
+
+                span:nth-child(2)
+                {
+                    font-weight: 400;
+                }
+            }
+        }
+    }

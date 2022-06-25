@@ -3,43 +3,61 @@
     home style
 */
 
-.content
-{
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+// .content
+// {
+//     font-family: 'Montserrat', sans-serif;
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
 
-    .scroll {
-        display: flex;
-        width: 100%;
-        transform: translateY(-90px);
-        // opacity: 0;
-        opacity: 1;
+//     .scroll {
+//         display: flex;
+//         width: 100%;
+//         transform: translateY(-90px);
+//         // opacity: 0;
+//         opacity: 1;
 
-        div
-        {
-            white-space: nowrap;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 30vmin;
-            animation: animate 40s linear infinite;
-        }
-    }
-}
+//         div
+//         {
+//             white-space: nowrap;
+//             animation: animate 40s linear infinite;
 
-@keyframes animate
-{
-    0%
-    {
-        transform: translateX(0%);
-    }
-    100%
-    {
-        transform: translateX(-100%);
-    }
-}
+//             font-weight: 900;
+//             text-transform: uppercase;
+//             font-size: 30vmin;
+//         }
+//     }
+// }
+
+// @keyframes animate
+// {
+//     0%
+//     {
+//         transform: translateX(0%);
+//     }
+//     100%
+//     {
+//         transform: translateX(-100%);
+//     }
+// }
+
+// .mega1
+// {
+//     width: 200px;
+//     height: 200px;
+//     margin-right: 7vh;
+//     margin-top: 2vh;
+// }
+
+// .mega2
+// {
+//     width: 100px;
+//     height: 100px;
+//     margin-left: 7vh;
+//     margin-right: 7vh;
+//     margin-top: 2vh;
+// }
 
 .transp-text
 {
@@ -54,20 +72,24 @@
     text-shadow: -1px -1px 0 var(--color-alpha), 1px -1px 0 var(--color-alpha), -1px 1px 0 var(--color-alpha), 1px 1px 0 var(--color-alpha);
 }
 
-
 .enter-btn
 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
     cursor: pointer;
-    border-radius: 50%;
-    position: absolute;
-    background-color: #fff;
+    border-radius: 20px;
+    position: fixed;
+    background-color: var(--accent-color1);
+    color: var(--accent-color2);
+    text-decoration: none;
+    text-align: center;
+    padding: 20px 3vmin;
     z-index: 2;
-    width: 40vmin;
-    height: 40vmin;
-    opacity: 0;
+    width: 100px;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    span
-    {
-        display: none;
-    }
+    box-shadow: 0px 0px 6px black;
 }

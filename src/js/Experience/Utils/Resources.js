@@ -35,6 +35,7 @@ export default class Resources extends EventEmitter
         this.loaders.gltfLoader = new GLTFLoader()
         this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader()
         this.loaders.textureLoader = new THREE.TextureLoader()
+        this.loaders.audioLoader = new THREE.AudioLoader()
     }
 
     startLoading()
@@ -79,6 +80,17 @@ export default class Resources extends EventEmitter
                     )
                 break
 
+                // getting audio
+                case 'audio': 
+                    this.loaders.audioLoader.load(
+                        source.path,
+                        (file) =>
+                        {
+                            this.sourceLoaded(source, file)
+                        }
+                    )
+                break
+
                 default:
                     console.log(`Sources or assests are empty`)
 
@@ -92,11 +104,14 @@ export default class Resources extends EventEmitter
 
         this.loaded++
 
+        const percentageText = document.querySelector(`.count-load`)
         const progress = Math.trunc((this.loaded / this.toLoad) * 100)
+        percentageText.innerText = `${progress}%`
 
         if(this.loaded === this.toLoad && progress === 100)
         {
-            // document.querySelector(`.preload`).style.zIndex = -99
+            document.querySelector(`.preload`).style.zIndex = -99
+            document.querySelector(`.preload`).style.opacity = 0
             this.trigger(`ready`)
         }
     }

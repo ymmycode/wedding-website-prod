@@ -1,10 +1,10 @@
 .title-partner
 {
     // center position
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-35vmin);
+    transform: translateX(-50%) translateY(-30vh);
 
     display: flex;
     flex-direction: row;
@@ -18,7 +18,7 @@
     {
         font-family: 'Great Vibes', cursive;
         // font-weight: 600;
-        font-size: 12vmin;
+        font-size: 9vh;
         opacity: 0;
     }
 }
@@ -37,14 +37,14 @@
     
     .partner-name
     {
-        font-size: 5vmin;
+        font-size: 3vh;
         font-weight: 600;
         opacity: 0;
     }
     
     .partner-detail
     {
-        font-size: 4vmin;
+        font-size: 2vh;
         opacity: 0;
     }
 }
@@ -53,11 +53,11 @@
 {
     .title-partner
     {
-        transform: translateX(-50%) translateY(-80vmin);
+        transform: translateX(-50%) translateY(-65vmin);
 
         span
         {
-            font-size: 15vmin;
+            font-size: 10vw;
         }
     }
 }
@@ -66,11 +66,6 @@
 {
     .title-partner
     {
-        transform: translateX(-50%) translateY(-70vmin);
-
-        span
-        {
-            font-size: 15vmin;
-        }
+        transform: translateX(-50%) translateY(-55vmin);
     }
 }

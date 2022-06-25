@@ -1,0 +1,59 @@
+.ornament-top, .ornament-bottom
+{
+    position: fixed;
+
+    opacity: 0;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 55vh;
+
+    svg
+    {
+        opacity: 0.5;
+        height: 100%;
+        width: 100%;
+        stroke: black;
+    }
+}
+
+.ornament-top
+{
+    top: 20px;
+}
+
+.ornament-bottom
+{
+    bottom: 80px;
+}
+
+@media screen and (max-width: 480px) 
+{
+    .ornament-bottom, .ornament-top
+    {
+        width: 40vh;
+    }
+
+    .ornament-bottom
+    {
+        bottom: 55px;
+    }
+
+}
+
+@media screen and (max-width: 360px) 
+{
+    .ornament-bottom, .ornament-top
+    {
+        
+    }     
+}
+
+@media screen and (max-width: 320px) 
+{
+    .ornament-bottom, .ornament-top
+    {
+        width: 55vh;
+    }     
+}

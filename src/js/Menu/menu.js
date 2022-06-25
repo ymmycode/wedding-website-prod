@@ -7,11 +7,10 @@ const menu = (container) =>
     {
         menuButton.classList.toggle(`active`)
 
-        for(let i = 0; i < 7; i++)
+        container.querySelectorAll(`.links`).forEach((link) => 
         {
-            const links = container.querySelector(`.link${i+1}`)
-            links.classList.toggle(`active`)
-        }
+            link.classList.toggle(`active`)
+        })
     })
 }
 

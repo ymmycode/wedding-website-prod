@@ -17,7 +17,7 @@ export default class MapDesign
         this.design.encoding = THREE.sRGBEncoding
         this.material = new THREE.MeshBasicMaterial({
             map: this.design,
-            side: THREE.DoubleSide
+            // side: THREE.DoubleSide
         })
 
         // rotate texture
