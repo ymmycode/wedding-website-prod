@@ -30,11 +30,7 @@ export default class PartnerPhotos
         this.debug = this.experience.debug.gui
 
         // tracked
-        this.tracked = false
-
-        // orientation
-        // this.orientation = this.experience.deviceOrientation
-        // this.euler = this.orientation.euler
+        this.tracked = true
 
         // group
         this.group = new THREE.Group()
@@ -90,22 +86,17 @@ export default class PartnerPhotos
         this.group.rotation.y = THREE.MathUtils.lerp(this.group.rotation.y, (this.mouse.x * Math.PI) / 20, 0.1)
         this.group.rotation.x = THREE.MathUtils.lerp(this.group.rotation.x, (-this.mouse.y * Math.PI) / 20, 0.1)
     }
-
-    rotateObjectWithSensor()
-    {
-        this.group2.rotation.y = THREE.MathUtils.lerp(this.group.rotation.y, ((this.euler.y) * Math.PI) / 2, 0.5)
-    }
-
+    
     partnersPosition()
     {
         this.points = [
             {
-                position: new THREE.Vector3(-2, -41.5, 0),
+                position: new THREE.Vector3(-1.75, -41.25, 0),
                 element: document.querySelector(`.partner1`) 
             },
 
             {
-                position: new THREE.Vector3(2, -41.5, 0),
+                position: new THREE.Vector3(2.3, -41.25, 0),
                 element: document.querySelector(`.partner2`) 
             }
         ]
@@ -116,12 +107,12 @@ export default class PartnerPhotos
     {
         this.points = [
             {
-                position: new THREE.Vector3(-.1, -39.8, 0),
+                position: new THREE.Vector3(-.2, -39.5 , 0),
                 element: document.querySelector(`.partner1`) 
             },
 
             {
-                position: new THREE.Vector3(-.1, -42.1, 0),
+                position: new THREE.Vector3(-.2, -41.7, 0),
                 element: document.querySelector(`.partner2`) 
             }
         ]
@@ -143,8 +134,7 @@ export default class PartnerPhotos
     update()
     {
         this.rotateObject()
-        // this.rotateObjectWithSensor()
-        if(this.tracked) this.updatePartnerPosition()
+        this.updatePartnerPosition()
     }
 
     debugThis()
@@ -158,16 +148,16 @@ export default class PartnerPhotos
 
     setMobile()
     {
-        this.scale = 3
+        this.scale = 3.2
         this.partnersPositionMobile()
 
         this.photoFrame.scene.position.x = 0
-        this.photoFrame.scene.position.y = 1
+        this.photoFrame.scene.position.y = 1.4
         this.photoFrame.scene.rotation.y = 0
         this.photoFrame.scene.scale.set(this.scale, this.scale, this.scale)
 
         this.photoFrame2.scene.position.x = 0
-        this.photoFrame2.scene.position.y = -1.2
+        this.photoFrame2.scene.position.y = -0.8
         this.photoFrame2.scene.rotation.y = 0
         this.photoFrame2.scene.scale.set(this.scale, this.scale, this.scale)
     }

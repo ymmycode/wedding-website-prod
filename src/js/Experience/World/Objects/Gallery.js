@@ -51,7 +51,7 @@ export default class Gallery
         this.group.position.set(0, -102, 0)
 
         //mobile scale
-        this.galleryModel.scale.set(0.5, 0.5, 0.5)
+        this.galleryModel.scale.set(0.7, 0.7, 0.7)
     }
 
     setMaterial()

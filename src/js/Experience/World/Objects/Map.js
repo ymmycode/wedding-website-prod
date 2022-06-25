@@ -50,7 +50,7 @@ export default class Map
         this.mapModel = this.mapScene.scene
         this.mapModel.scale.set(2.5, 2.5, 2.5)
         // this.mapModel.rotation.y = -Math.PI * .3
-        this.mapModel.rotation.y = -Math.PI * .5
+        this.mapModel.rotation.y = -Math.PI * .75
         this.mapModel.position.y = -.2
 
         //adding map to the actual scene
@@ -103,13 +103,13 @@ export default class Map
 
         if(this.autoRotate)
         {
-            this.group.rotation.y = Math.sin( this.time.elapsed * 0.001 / 12)
+            this.group.rotation.y = Math.cos(Math.sin( this.time.elapsed * 0.001 / 12))
         }
     }
 
     setDesktop()
     {
-        this.mapModel.scale.set(2.5, 2.5, 2.5)
+        this.mapModel.scale.set(2.25, 2.25, 2.25)
     }
 
     setMobile()
